@@ -1,0 +1,34 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Folder.HomeSettingsViewModel
+
+@{
+    ViewBag.Title = Strings.Settings;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+    <section id="home-settings">
+        
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Index", "Home")" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>

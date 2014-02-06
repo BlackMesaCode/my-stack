@@ -1,0 +1,27 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = Strings.Manage;
+}
+
+<h1>@ViewBag.Title</h1>
+
+@ViewBag.StatusMessage
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{
+    @Html.Partial("_SetPasswordPartial")
+}
+
+
+@Html.Action("RemoveAccountList")
+
+
+@if (!Request.IsAuthenticated)
+{
+    @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+}

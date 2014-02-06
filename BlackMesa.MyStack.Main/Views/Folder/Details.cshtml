@@ -1,0 +1,169 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Folder.DetailsViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    <section id="folder-details">
+
+        @Html.Partial("_Path", Model.Path)
+
+        <div class="tile-splitter">
+            @if (Model.IsRootFolder)
+            {
+                <div class="tile gray-darker">
+                    <h1><i class="icon-folder-open"></i>@ViewBag.Title</h1>
+                </div>
+            }
+            else
+            {
+                <a class="tile gray-darker-hover" href="@Url.Action("Edit", "Folder", new { id = Model.Id })">
+                    <h1><i class="icon-folder-open"></i>@ViewBag.Title</h1>
+                </a>
+            }
+            
+            @if (Model.DueCards > 0)
+            {
+                <div class="tile gray-darker has-due-cards" title="@Strings.NumberOfDueCards">
+                    <i class="icon-bell"></i>@Model.DueCards
+                </div>
+            }
+            else
+            {
+                <div class="tile gray-darker no-due-cards" title="@Strings.NoDueCards">
+                    <i class="icon-thumbs-up"></i>
+                </div>
+            }
+            
+
+            @if (Model.IsSelected)
+            {
+                <a class="tile gray-darker checked" href="@Url.Action("RemoveFolder", "Selection", new { folderId = Model.Id, returnFolderId = Model.Id })">
+                    <i class="icon-checked-square"></i>
+                </a>
+            }
+            else
+            {
+                <a class="tile gray-darker unchecked" href="@Url.Action("AddFolder", "Selection", new { folderId = Model.Id, returnFolderId = Model.Id })">
+                    <i class="icon-unchecked-square"></i>
+                </a>
+            }
+        </div>
+
+        <div id="folder-items">
+
+            @foreach (var subFolder in Model.SubFolders)
+            {
+                <div class="tile-splitter">
+                    <a class="tile gray-light-hover" href="@Url.Action("Details", "Folder", new { id = subFolder.Id })">
+                        <i class="icon-folder"> </i>@subFolder.Name
+                    </a>
+                    @{
+                        var dueCardsInFolder = Model.DueCardsPerSubfolder[subFolder.Id.ToString()];
+                    }
+                    @if (dueCardsInFolder > 0)
+                    {
+                        <div class="tile gray-light has-due-cards" title="@Strings.NumberOfDueCards">
+                            <i class="icon-bell"></i>@dueCardsInFolder
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="tile gray-light no-due-cards" title="@Strings.NoDueCards">
+                            <i class="icon-thumbs-up"></i>
+                        </div>
+                    }
+                    
+
+                    @if (subFolder.IsSelected)
+                    {
+                        <a class="tile gray-light-hover checked" href="@Url.Action("RemoveFolder", "Selection", new { folderId = subFolder.Id, returnFolderId = Model.Id })">
+                            <i class="icon-checked-square"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="tile gray-light-hover unchecked" href="@Url.Action("AddFolder", "Selection", new { folderId = subFolder.Id, returnFolderId = Model.Id })">
+                            <i class="icon-unchecked-square"></i>
+                        </a>
+                    }
+                </div>
+            }
+
+
+            @foreach (var card in Model.Cards)
+            {
+                <div class="tile-splitter">
+                    <a class="tile gray-light-hover" href="@Url.Action("Edit", "Card", new { id = card.Id })">
+                        <i class="icon-card"> </i>@card.FrontSide
+                    </a>
+
+                    @if (card.IsSelected)
+                    {
+                        <a class="tile gray-light-hover checked" href="@Url.Action("RemoveCard", "Selection", new { cardId = card.Id, returnFolderId = Model.Id })">
+                            <i class="icon-checked-square"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="tile gray-light-hover unchecked" href="@Url.Action("AddCard", "Selection", new { cardId = card.Id, returnFolderId = Model.Id })">
+                            <i class="icon-unchecked-square"></i>
+                        </a>
+                    }
+                </div>
+            }
+
+        </div>
+    </section>
+
+    
+</div>
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+    
+    @if (Model.HasAnySelection)
+    {
+        <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.Id })" title="@Strings.Options">
+            @*<i class="icon-wrench"></i>*@
+            <i class="icon-checked-square"></i>
+        </a>
+
+        <a class="red-hover" href="@Url.Action("RemoveFolder", "Selection", new { folderId = Model.Id, returnFolderId = Model.Id })" title="@Strings.ClearSelection">
+            <i class="icon-abort"></i>
+        </a>
+    }
+    else
+    {
+        if (Model.IsRootFolder)
+        {
+            <a class="red-hover" href="@Url.Action("Index", "Home")" title="@Strings.Home">
+                <i class="icon-home"></i>
+            </a>
+        }
+        else
+        {
+            <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.ParentFolderId })" title="@Strings.Back">
+                <i class="icon-left-up"></i>
+            </a>
+        }
+        
+    
+        <a class="red-hover" href="@Url.Action("AddOptions", "Folder", new { folderId = Model.Id })" title="@Strings.Insert">
+            <i class="icon-plus"></i>
+        </a>
+
+    }
+
+    
+
+</nav>

@@ -1,0 +1,33 @@
+﻿@using BlackMesa.MyStack.Main.Models
+@using BlackMesa.MyStack.Main.Models
+@using BlackMesa.MyStack.Main.Resources
+@model BlackMesa.MyStack.Main.Models.Folder
+
+<div class="tree-item">
+
+    @for (int i = 1; i < Model.Level; i++)
+    {
+        <span class="indent"></span>
+    }
+
+    <a class="tile gray-light-hover" href="@Url.Action("Move", "Selection", new { sourceFolderId = ViewBag.SourceFolderId, targetFolderId = Model.Id })">
+        <i class="icon-folder"></i>@Model.Name
+    </a>
+
+</div>
+
+@*// selectedfolder != sourceFolder || selectedFolder == sourceFolder && sourceFolder.SubFolders.All(s => !s.IsSelected)*@
+
+@if (Model.SubFolders.Count > 0)
+{
+    foreach (var subFolder in Model.SubFolders)
+    {
+        if (!(ViewBag.SourceFolder as Folder).SubFolders.Where(s => s.IsSelected).Contains(subFolder) &&
+            ((subFolder == ViewBag.SourceFolder && 
+            (!(ViewBag.SourceFolder as Folder).IsSelected && (ViewBag.SourceFolder as Folder).SubFolders.Any(s => !s.IsSelected))) ||
+            subFolder != ViewBag.SourceFolder))
+        {
+            @Html.Partial("_FolderListItem", subFolder)
+        }
+    }
+}

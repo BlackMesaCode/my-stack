@@ -1,0 +1,55 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.SearchResultsViewModel
+
+@{
+    var results = "";
+    if (Model.SearchResults.Count == 1)
+    {
+        results = Strings.SearchResult;
+    }
+    else
+    {
+        results = Strings.SearchResults;
+    }
+    ViewBag.Title = Model.SearchResults.Count + " " + results;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="folder-search-results">
+
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="tile gray-light">
+            @Strings.SearchText: @Model.SearchText
+        </div>
+
+        @foreach (var result in Model.SearchResults)
+        {
+            @Html.Partial("_SearchResult", result)
+        }
+
+    </section>
+
+</div>
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Search", "Selection", new { folderId = Model.Id })" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+    
+    <a class="red-hover" href="@Url.Action("Index", "Folder")" title="@Strings.YourFolders">
+        <i class="icon-list"></i>
+    </a>
+
+</nav>

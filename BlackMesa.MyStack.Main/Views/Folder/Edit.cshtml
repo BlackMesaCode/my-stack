@@ -1,0 +1,60 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Folder.EditViewModel
+@{
+    ViewBag.Title = Strings.EditFolder;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="folder-edit">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            
+            
+            <div class="form-element-container">
+                @Html.TextBoxFor(model => model.Name, new { @autocomplete = "off", @autofocus = "" })
+            </div>
+
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    @Strings.Save
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.Id })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+
+</nav>

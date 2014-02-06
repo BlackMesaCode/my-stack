@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AddEntry" xml:space="preserve">
+    <value>AddEntry</value>
+  </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Back to top</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="DateCreated" xml:space="preserve">
+    <value>Date created</value>
+  </data>
+  <data name="DateEdited" xml:space="preserve">
+    <value>Date edited</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Entries" xml:space="preserve">
+    <value>entries</value>
+  </data>
+  <data name="Entry" xml:space="preserve">
+    <value>entry</value>
+  </data>
+  <data name="FilterByTag" xml:space="preserve">
+    <value>Filter by tag</value>
+  </data>
+  <data name="FooterLicence" xml:space="preserve">
+    <value>Except where otherwise noted, content on this site is licensed under </value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LegalNotice" xml:space="preserve">
+    <value>Legal notice</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NoEntriesFound" xml:space="preserve">
+    <value>No entries found</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="ReparseAll" xml:space="preserve">
+    <value>Reparse all</value>
+  </data>
+  <data name="RevisedOn" xml:space="preserve">
+    <value>Revised on</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ToSearch" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchAgain" xml:space="preserve">
+    <value>Search again</value>
+  </data>
+  <data name="SearchByDate" xml:space="preserve">
+    <value>Search by date</value>
+  </data>
+  <data name="SearchByTag" xml:space="preserve">
+    <value>Search by tag</value>
+  </data>
+  <data name="SearchByText" xml:space="preserve">
+    <value>Search by text</value>
+  </data>
+  <data name="SearchCriteria" xml:space="preserve">
+    <value>Search criteria</value>
+  </data>
+  <data name="SearchResult" xml:space="preserve">
+    <value>Search result</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search results</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="CreateLocalAccount" xml:space="preserve">
+    <value>Create local account</value>
+  </data>
+  <data name="LinkedThirdPartyAccounts" xml:space="preserve">
+    <value>Linked third party accounts</value>
+  </data>
+  <data name="NoLocalAccount" xml:space="preserve">
+    <value>If you do not yet have a local account</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="UseLocalAccount" xml:space="preserve">
+    <value>Use local account</value>
+  </data>
+  <data name="UseThirdPartyAccount" xml:space="preserve">
+    <value>Use third party account</value>
+  </data>
+  <data name="PasswordLengthInvalid" xml:space="preserve">
+    <value>"{0}" must be at least {2} characters long.</value>
+  </data>
+  <data name="PasswordsDontMatch" xml:space="preserve">
+    <value>Your new password does not match the confirmation password.</value>
+  </data>
+  <data name="SetPassForLocalAccount" xml:space="preserve">
+    <value>Set password for local account</value>
+  </data>
+  <data name="StaySignedIn" xml:space="preserve">
+    <value>Stay signed in</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="Learning" xml:space="preserve">
+    <value>Learning</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="CreateFolder" xml:space="preserve">
+    <value>Create folder</value>
+  </data>
+  <data name="CreateSubFolder" xml:space="preserve">
+    <value>Create subfolder</value>
+  </data>
+  <data name="DeleteFolder" xml:space="preserve">
+    <value>Delete folder</value>
+  </data>
+  <data name="EditFolder" xml:space="preserve">
+    <value>Edit folder</value>
+  </data>
+  <data name="MoveFolder" xml:space="preserve">
+    <value>Move folder</value>
+  </data>
+  <data name="Folders" xml:space="preserve">
+    <value>Folders</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Index card</value>
+  </data>
+  <data name="Cards" xml:space="preserve">
+    <value>Index cards</value>
+  </data>
+  <data name="CreateCard" xml:space="preserve">
+    <value>Create index card</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="WroteOn" xml:space="preserve">
+    <value>wrote on</value>
+  </data>
+  <data name="NameAlreadyTaken" xml:space="preserve">
+    <value>This name is already taken.</value>
+  </data>
+  <data name="PleaseConfirm" xml:space="preserve">
+    <value>Please confirm:</value>
+  </data>
+  <data name="YourComment" xml:space="preserve">
+    <value>Your comment</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="BackSide" xml:space="preserve">
+    <value>Backside</value>
+  </data>
+  <data name="YourFolders" xml:space="preserve">
+    <value>Your folders</value>
+  </data>
+  <data name="Abort" xml:space="preserve">
+    <value>Abort</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Statistic" xml:space="preserve">
+    <value>Statistic</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="SelectedFolder" xml:space="preserve">
+    <value>Selected folder</value>
+  </data>
+  <data name="SelectedFolders" xml:space="preserve">
+    <value>Selected folders</value>
+  </data>
+  <data name="IncludeSubfolders" xml:space="preserve">
+    <value>Include subfolders</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="TestType" xml:space="preserve">
+    <value>Test type</value>
+  </data>
+  <data name="StartTest" xml:space="preserve">
+    <value>Start test</value>
+  </data>
+  <data name="TestTypeNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="TestTypeSinglePass" xml:space="preserve">
+    <value>Single pass</value>
+  </data>
+  <data name="OrderTypeOrdered" xml:space="preserve">
+    <value>Ordered</value>
+  </data>
+  <data name="OrderTypeShuffled" xml:space="preserve">
+    <value>Shuffled</value>
+  </data>
+  <data name="TestResultCorrect" xml:space="preserve">
+    <value>Correct</value>
+  </data>
+  <data name="TestResultPartlyCorrect" xml:space="preserve">
+    <value>Partly correct</value>
+  </data>
+  <data name="TestResultWrong" xml:space="preserve">
+    <value>Wrong</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ShowBackSide" xml:space="preserve">
+    <value>Show backSide</value>
+  </data>
+  <data name="TestHistory" xml:space="preserve">
+    <value>Test history</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="FirstPassResults" xml:space="preserve">
+    <value>Results of the first pass</value>
+  </data>
+  <data name="TestedCards" xml:space="preserve">
+    <value>Tested cards</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Examine" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="PasteSelectedItems" xml:space="preserve">
+    <value>Paste selected items here</value>
+  </data>
+  <data name="YourSelectedItems" xml:space="preserve">
+    <value>Your selected items</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="ReverseSides" xml:space="preserve">
+    <value>Reverse front and backside</value>
+  </data>
+  <data name="FrontSide" xml:space="preserve">
+    <value>Frontside</value>
+  </data>
+  <data name="Selection" xml:space="preserve">
+    <value>Selection</value>
+  </data>
+  <data name="Root" xml:space="preserve">
+    <value>\</value>
+  </data>
+  <data name="MoveSelection" xml:space="preserve">
+    <value>Move selection</value>
+  </data>
+  <data name="SelectTargetFolder" xml:space="preserve">
+    <value>Select target folder</value>
+  </data>
+  <data name="DeleteCard" xml:space="preserve">
+    <value>Delete index card</value>
+  </data>
+  <data name="EditCard" xml:space="preserve">
+    <value>Edit index card</value>
+  </data>
+  <data name="TestCompleted" xml:space="preserve">
+    <value>Test completed</value>
+  </data>
+  <data name="SetupTest" xml:space="preserve">
+    <value>Setup test</value>
+  </data>
+  <data name="DeleteSelection" xml:space="preserve">
+    <value>Delete selected items</value>
+  </data>
+  <data name="FolderStats" xml:space="preserve">
+    <value>Folder statistics</value>
+  </data>
+  <data name="PerformDeletion" xml:space="preserve">
+    <value>Perform deletion</value>
+  </data>
+  <data name="SearchFolder" xml:space="preserve">
+    <value>Search folder</value>
+  </data>
+  <data name="AffectedFolders" xml:space="preserve">
+    <value>Affected folders</value>
+  </data>
+  <data name="AffectedCards" xml:space="preserve">
+    <value>Affected learning cards</value>
+  </data>
+  <data name="IncludingSubfolders" xml:space="preserve">
+    <value>Including subfolders</value>
+  </data>
+  <data name="SelectionAffection" xml:space="preserve">
+    <value>Your selection affects a total of</value>
+  </data>
+  <data name="FilterOptions" xml:space="preserve">
+    <value>Filter options</value>
+  </data>
+  <data name="SearchBackSide" xml:space="preserve">
+    <value>on the backside of the index cards</value>
+  </data>
+  <data name="SearchFrontSide" xml:space="preserve">
+    <value>on the frontside of the index cards</value>
+  </data>
+  <data name="SearchPeriod" xml:space="preserve">
+    <value>Search period</value>
+  </data>
+  <data name="SearchPlaces" xml:space="preserve">
+    <value>Search places</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Search text</value>
+  </data>
+  <data name="SearchWhat" xml:space="preserve">
+    <value>What are you looking for?</value>
+  </data>
+  <data name="SearchWhen" xml:space="preserve">
+    <value>In which period?</value>
+  </data>
+  <data name="SearchWhere" xml:space="preserve">
+    <value>Where shell we look?</value>
+  </data>
+  <data name="SearchSelection" xml:space="preserve">
+    <value>Search in selection</value>
+  </data>
+  <data name="FlipCard" xml:space="preserve">
+    <value>Flip card</value>
+  </data>
+  <data name="ChangeOrder" xml:space="preserve">
+    <value>Change order</value>
+  </data>
+  <data name="SetInsertAfterCard" xml:space="preserve">
+    <value>Below which card do you want to insert your selection?</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="CreateStatistic" xml:space="preserve">
+    <value>Create statistic</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>more</value>
+  </data>
+  <data name="WhatToDoWithThem" xml:space="preserve">
+    <value>What do you want to do with them?</value>
+  </data>
+  <data name="WhereDoYouWantToSearch" xml:space="preserve">
+    <value>Where do you want to search?</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="TestOnlyDueCards" xml:space="preserve">
+    <value>Test only due cards</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="ExportAsXmlFile" xml:space="preserve">
+    <value>Export as XML File</value>
+  </data>
+  <data name="ImportFromXML" xml:space="preserve">
+    <value>Import from XML File</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Insert" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="SelectedElements" xml:space="preserve">
+    <value>Selected elements</value>
+  </data>
+  <data name="SelectionOptions" xml:space="preserve">
+    <value>Selection options</value>
+  </data>
+  <data name="TimeNeeded" xml:space="preserve">
+    <value>Time needed</value>
+  </data>
+  <data name="CardsLeft" xml:space="preserve">
+    <value>Cards left</value>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>Remaining</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="PerformReset" xml:space="preserve">
+    <value>Perform reset</value>
+  </data>
+  <data name="ResetTestResults" xml:space="preserve">
+    <value>Reset test results</value>
+  </data>
+  <data name="NumberOfDueCards" xml:space="preserve">
+    <value>Number of due cards</value>
+  </data>
+  <data name="NoDueCards" xml:space="preserve">
+    <value>No due cards</value>
+  </data>
+</root>

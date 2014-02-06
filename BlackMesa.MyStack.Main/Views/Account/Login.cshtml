@@ -1,0 +1,45 @@
+﻿@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+@model BlackMesa.MyStack.Main.ViewModels.Account.LoginViewModel
+
+@{
+    ViewBag.Title = Strings.LogIn;
+}
+
+<section id="login">
+
+    <h1>@ViewBag.Title</h1>
+
+    <section id="local-login">
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <h3>@Strings.UseLocalAccount</h3>
+
+            @Html.ValidationSummary(true)
+
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+
+            @Html.LabelFor(m => m.RememberMe)
+            @Html.CheckBoxFor(m => m.RememberMe)
+            
+
+            <input type="submit" value="@Strings.LogIn" />
+
+            @Strings.NoLocalAccount<text>: </text>@Html.ActionLink(Strings.Register, "Register")
+        }
+
+    </section>
+
+    @if (!Request.IsAuthenticated)
+    {
+        @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+    }
+    
+</section>

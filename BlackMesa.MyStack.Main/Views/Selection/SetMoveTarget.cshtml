@@ -1,0 +1,43 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.SetMoveTargetViewModel
+
+@{
+    ViewBag.Title = Strings.MoveSelection;
+    ViewBag.SourceFolderId = Model.SourceFolderId;
+    ViewBag.SourceFolder = Model.SourceFolder;
+}
+
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="selection-move">
+        
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="tile gray-dark">
+            <h3>@Strings.SelectTargetFolder</h3>
+        </div>
+
+        @Html.Partial("_FolderListItem", Model.RootFolder)
+
+    </section>
+    
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.SourceFolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

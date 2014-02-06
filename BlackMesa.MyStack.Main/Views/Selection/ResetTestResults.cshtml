@@ -1,0 +1,59 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.ResetTestResultsViewModel
+
+@{
+    ViewBag.Title = Strings.ResetTestResults;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+
+    <section id="selection-clear-test-results">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="tile gray-light">
+                @Strings.SelectionAffection: @Model.AffectedCardsCount @(Model.AffectedCardsCount == 1 ? Strings.Card : Strings.Cards)
+            </div>
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    <i class="icon-warning"></i>@Strings.PerformReset
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

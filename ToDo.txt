@@ -1,0 +1,82 @@
+---------------------------------------------------------------------------------
+ToDo
+---------------------------------------------------------------------------------
+
+checken ob beim löschen einer karte auch seine testitems mitgelöscht werden
+
+make select & deselect clientside with js / or jus send small ajax  - and then pass list of selectedItems to selection options controller
+
+dein unkomplizierte karteikarten app -> 
+dein digitaler karteikasten für daheim und unterwegs
+
+Statistik Konzept erarbeiten
+parse backside and frontside content for urls to make them clickable
+recherche: .net text-to-speach audio generator
+
+
+hotkey navigation
+	Tab-Focus Styling
+	evtl reichen hotkeys für die menüpunkte
+
+
+GetLocalizedName property für enums
+Bessere CSS Strukturierung
+
+
+
+Im Falle einer Veröffentlichung
+	Catch Exceptions
+	Berechtigungskontrolle in den Controllern einführen
+	Entscheidung: free (ideologic mission)/ ads / monthly subscription
+	prepopulate stammfolder mit tutorial cards
+	reactivate string length constraints after population
+		javascript -> show current backSide chars
+	export/import csv
+	Größenanpassungen unterschiedlicher Endgeräte
+	Identity-Integration?
+	Daten-Traffic und Ladezeiten Analyse und Optimierung
+	Übersetzungs-Check
+	track page visits in own db and with the help of google analytics
+	Backup-Routinen schreiben
+	Share Cards and Folders
+	Social Media Like Options
+	Donation-Button
+	Hilfe-Optionen
+		Hovers, Tooltips, Explanations 
+	Plattform Stats
+		Registered Users, Hits, Cards, Folders, Tests etc
+	Identity / Settings / Accountverwaltungskonzept
+		Config-Seite
+		Sprache
+		Links + Rechtshänder
+
+
+use type, autocapitalize, autocorrect, placeholder attributes on form elements
+
+
+defer execution of javascript with async and defer
+
+http://zurb.com/playground/pizza-pie-charts  kuchendiagramme für die statistik seite
+
+
+Today's browsers define focus() on HTMLElement, but an element won't actually take focus unless it's one of:
+
+HTMLAnchorElement/HTMLAreaElement with an href
+HTMLInputElement/HTMLSelectElement/HTMLTextAreaElement/HTMLButtonElement but not with disabled (IE actually gives you an error if you try), and file uploads have unusual behaviour for security reasons
+HTMLIFrameElement (though focusing it doesn't do anything useful). Other embedding elements also, maybe, I haven't tested them all.
+Any element with a tabindex
+
+The tabindex value can allow for some interesting behaviour.
+
+If given a value of "-1", the element can't be tabbed to but focus can be given to the element programmatically (using element.focus()).
+If given a value of 0, the element can be focused via the keyboard and falls into the tabbing flow of the document.
+Values greater than 0 create a priority level with 1 being the most important.
+
+
+If multiple elements have the same tabindex, you then go in document order until you reach the last element with that tabindex.
+
+
+arrow left - focus tab in navigation
+arrow right - focus tab in content
+
+

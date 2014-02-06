@@ -1,0 +1,48 @@
+﻿@using BlackMesa.MyStack.Main.Models
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Folder.AddOptionsViewModel
+
+@{
+    ViewBag.Title = Strings.Add;
+}
+
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="folder-insert-options">
+        
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        
+        <a class="tile gray-light-hover" href="@Url.Action("Create", "Card", new { folderId = Model.FolderId })">
+            <i class="icon-card"></i>@Strings.Card
+        </a>
+
+        <a class="tile gray-light-hover" href="@Url.Action("Create", "Folder", new { parentFolderId = Model.FolderId })">
+            <i class="icon-folder"></i>@Strings.Folder
+        </a>
+
+        <a class="tile gray-light-hover" href="@Url.Action("Import", "Selection", new { folderId = Model.FolderId })">
+            <i class="icon-import-unknown"></i>@Strings.ImportFromXML
+        </a>
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

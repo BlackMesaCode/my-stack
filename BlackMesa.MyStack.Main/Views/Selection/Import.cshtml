@@ -1,0 +1,60 @@
+﻿
+@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.ImportViewModel
+
+@{
+    ViewBag.Title = Strings.ImportFromXML;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+    <section id="selection-import">
+        
+        @using (Html.BeginForm("Import", "Selection"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+            
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="form-element-container">
+                @Html.TextAreaFor(model => model.SerializationResult, new { @autocomplete = "off", @autofocus = "", @autocorrect = "off", @rows = 10 })
+            </div>
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    <i class="icon-plus prefix-icon"></i><i class="icon-import-unknown"></i>@Strings.Import
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

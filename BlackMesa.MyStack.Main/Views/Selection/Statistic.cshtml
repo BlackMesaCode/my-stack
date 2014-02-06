@@ -1,0 +1,44 @@
+﻿
+@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.StatisticViewModel
+
+@{
+    ViewBag.Title = Strings.Statistic;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+    <section id="selection-statistic">
+        
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        
+        <div class="tile gray-dark">
+            <h3>Submenu</h3>
+        </div>
+        
+        <div class="tile gray-light">
+            Infos
+        </div>
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>

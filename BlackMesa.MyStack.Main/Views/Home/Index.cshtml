@@ -1,0 +1,75 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+
+@{
+    ViewBag.Title = Strings.Learning;
+}
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    <section id="home-index">
+        
+        <div id="logo" class="tile gray-darker center">
+            <img src="~/Images/mystack_logo.png" />
+        </div>
+
+        <div class="tile gray-light center">
+            <h3>subtitle</h3>
+        </div>
+
+    </section>
+</div>
+
+<nav id="menu">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="red-hover" href="@Url.Action("Index", "Folder")" title="@Strings.YourFolders">
+            <i class="icon-list"></i>
+        </a>
+        
+        <a class="red-hover" href="@Url.Action("LogOff", "Account")" title="@Strings.Logout">
+            <i class="icon-logout"></i>
+        </a>
+        
+        <a class="red-hover" href="@Url.Action("Manage", "Account")" title="@Strings.Manage">
+            <i class="icon-cogs"></i>
+        </a>
+    }
+    else
+    {
+        <a class="red-hover" href="@Url.Action("Login", "Account")" title="@Strings.LogIn">
+            <i class="icon-login"></i>
+        </a>
+        
+        <a class="red-hover" href="@Url.Action("Register", "Account")" title="@Strings.Register">
+            <i class="icon-register"></i>
+        </a>
+    }
+
+</nav>
+
+
+
+@*<nav>
+
+    @if (user.identity.isauthenticated)
+    {
+        <a class="tile red-hover" href="@url.action("index", "folder")">
+            <h3><i class="icon-list"></i>@strings.yourfolders</h3>
+        </a>
+
+        <a class="tile red-hover" href="@url.action("index", "entry")">
+            <h3><i class="icon-logout"></i>@strings.logout</h3>
+        </a>
+    }
+    else
+    {
+        <a class="tile red-hover" href="@url.action("login", "account")">
+            <h3><i class="icon-login"></i>@strings.login</h3>
+        </a>
+    }
+
+</nav>*@
+

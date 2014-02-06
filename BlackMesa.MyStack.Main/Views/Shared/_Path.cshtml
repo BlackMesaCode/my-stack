@@ -1,0 +1,20 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model List<BlackMesa.MyStack.Main.Models.Folder>
+
+<div id="folder-path">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        string id = String.Empty;
+        if (i == Model.Count - 1)
+        {
+            id = "last-folder";
+        }
+        <a id="@id" href="@Url.Action("Details", "Folder", new { id = Model.ElementAt(i).Id.ToString() })">
+            <div class="tile gray-dark-hover">
+                @Model.ElementAt(i).Name<i class="icon-right"></i>
+            </div>
+        </a>
+    }
+</div>
+

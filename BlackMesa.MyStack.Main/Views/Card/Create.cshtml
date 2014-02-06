@@ -1,0 +1,73 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Card.CreateViewModel
+
+@{
+    ViewBag.Title = Strings.CreateCard;
+}
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="card-create">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+            
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+
+    
+            <div class="form-element-container">
+                @Html.TextAreaFor(model => model.FrontSide, new { @placeholder = Strings.FrontSide, @autocomplete = "off", @autofocus = "" })
+            </div>
+
+
+            <div class="form-element-container">
+                @Html.TextAreaFor(model => model.BackSide, new { @placeholder = Strings.BackSide, @autocomplete = "off" })
+            </div>
+
+            
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    @Strings.Save
+                </button>
+            </div>
+    }
+
+    </section>
+
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+
+</nav>
+
+@section Scripts {
+
+    <script src="~/Javascript/create-edit-card.js"></script>
+
+}

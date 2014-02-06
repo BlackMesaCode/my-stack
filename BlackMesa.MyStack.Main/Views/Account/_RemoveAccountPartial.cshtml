@@ -1,0 +1,26 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@model ICollection<Microsoft.AspNet.Identity.UserLoginInfo>
+
+@if (Model.Count > 0)
+{
+    <h3>@Strings.LinkedThirdPartyAccounts</h3>
+    
+    foreach (var account in Model)
+    {
+        @account.LoginProvider
+
+        if (ViewBag.ShowRemoveButton)
+        {
+            using (Html.BeginForm("Disassociate", "Account"))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.Hidden("loginProvider", account.LoginProvider)
+                @Html.Hidden("providerKey", account.ProviderKey)
+    
+                <input type="submit" value="@Strings.Remove" />
+            }
+        }
+        
+    }
+}

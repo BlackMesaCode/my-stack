@@ -1,0 +1,77 @@
+﻿@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.SearchViewModel
+
+@{
+    ViewBag.Title = Strings.SearchSelection;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="selection-search">   
+        
+        @using (Html.BeginForm())
+        {
+            
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+            
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>  
+            
+            <div class="tile gray-dark">
+                <h3>@Strings.SearchWhat</h3>
+            </div>
+            
+            <div class="form-element-container">
+                @Html.TextBoxFor(model => model.SearchText, new { @placeholder = Strings.SearchText, @autocomplete = "off" })
+            </div>
+
+            <div class="tile gray-dark">
+                <h3>@Strings.WhereDoYouWantToSearch</h3>
+            </div>
+
+            <label class="tile gray-light-hover" for="_SearchFrontSide">
+                @Html.CheckBoxFor(model => model.SearchFrontSide, new { @id = "_SearchFrontSide" }) @Strings.SearchFrontSide
+            </label>
+
+            <label class="tile gray-light-hover" for="_SearchBackSide">
+                @Html.CheckBoxFor(model => model.SearchBackSide, new { @id = "_SearchBackSide" }) @Strings.SearchBackSide
+            </label>
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    @Strings.ToSearch
+                </button>
+            </div>
+        }
+        
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

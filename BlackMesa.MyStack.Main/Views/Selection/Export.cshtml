@@ -1,0 +1,64 @@
+﻿
+@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.ExportViewModel
+
+@{
+    ViewBag.Title = Strings.ExportAsXmlFile;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+    <section id="selection-export">
+        
+        @using (Html.BeginForm("DownloadExport", "Selection"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+            
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+
+            <div class="form-element-container">
+                @Html.TextAreaFor(model => model.SerializationResult, new {@autocomplete = "off", @autofocus = "", @autocorrect = "off", @rows = 10})
+            </div>
+
+            @*<div class="tile gray-dark-hover">
+                <h2><i class="icon-clipboard"></i>@Strings.CopyToClipboard</h2>
+            </div>*@
+            
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    <i class="icon-download"></i>@Strings.Download
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>
+
+
+@section Scripts {
+
+    <script src="~/Javascript/export.js"></script>
+
+}

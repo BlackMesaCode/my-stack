@@ -1,0 +1,98 @@
+﻿@using BlackMesa.MyStack.Main.Models
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.OptionsViewModel
+
+@{
+    ViewBag.Title = Strings.SelectionOptions;
+}
+
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="selection-options">
+        
+        <div class="tile gray-darker">
+            <h1>@Strings.SelectedElements</h1>
+        </div>
+        
+        @if (!Model.HasRootFolderSelected)
+        {
+            <a class="tile gray-light-hover" href="@Url.Action("SetMoveTarget", "Selection", new { sourceFolderId = Model.Id })">
+                <i class="icon-move"></i>@Strings.Move
+            </a>
+        }
+
+        @if (Model.HasOnlyCardsSelected)
+        {
+            <a class="tile gray-light-hover" href="@Url.Action("SetInsertAfterCard", "Selection", new { sourceFolderId = Model.Id })">
+                <i class="icon-ol"></i>@Strings.ChangeOrder
+            </a>
+        }
+
+
+        @if (Model.HasAnyFolderSelected)
+        {
+            <a class="tile gray-light-hover" href="@Url.Action("Search", "Selection", new { folderId = Model.Id })">
+                <i class="icon-search"></i>@Strings.Examine
+            </a>
+        }
+  
+        @if (Model.HasOnlyOneFolderSelected)
+        {
+            <a class="tile gray-light-hover" href="@Url.Action("Edit", "Folder", new { id = Model.FolderId })">
+                <i class="icon-edit"></i>@Strings.Edit
+            </a>
+        }
+        
+        @if (Model.HasOnlyOneCardSelected)
+        {
+            <a class="tile gray-light-hover" href="@Url.Action("Edit", "Card", new { id = Model.CardId })">
+                <i class="icon-edit"></i>@Strings.Edit
+            </a>
+        }
+        
+        <a class="tile gray-light-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.Id, position = 0, doInit = true })">
+            <i class="icon-browse"></i>@Strings.Browse
+        </a>
+
+        <a class="tile gray-light-hover" href="@Url.Action("Setup", "Test", new { folderId = Model.Id })">
+            <i class="icon-rocket"></i>@Strings.StartTest
+        </a>
+        
+
+        <a class="tile gray-light-hover" href="@Url.Action("Statistic", "Selection", new { id = Model.Id })">
+            <i class="icon-stats"></i>@Strings.CreateStatistic
+        </a>
+        
+        <a class="tile gray-light-hover" href="@Url.Action("Export", "Selection", new { folderId = Model.Id })">
+            <i class="icon-export-unknown"></i>@Strings.ExportAsXmlFile
+        </a>
+        
+        <a class="tile gray-light-hover" href="@Url.Action("ResetTestResults", "Selection", new { folderId = Model.Id })">
+            <i class="icon-eraser"></i>@Strings.ResetTestResults
+        </a>
+
+        <a class="tile gray-light-hover" href="@Url.Action("Delete", "Selection", new {folderId = Model.Id})">
+            <i class="icon-delete"></i>@Strings.Delete
+        </a>
+
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.Id })" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>
