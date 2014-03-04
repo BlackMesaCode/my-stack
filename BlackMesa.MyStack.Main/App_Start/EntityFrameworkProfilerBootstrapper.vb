@@ -1,6 +1,6 @@
 Imports HibernatingRhinos.Profiler.Appender.EntityFramework
 
-<Assembly: WebActivator.PreApplicationStartMethod(GetType(Global.BlackMesa.MyStack.Main.App_Start.EntityFrameworkProfilerBootstrapper), "PreStart")> 
+<assembly: WebActivator.PreApplicationStartMethod(GetType(Global.BlackMesa.MyStack.Main.App_Start.EntityFrameworkProfilerBootstrapper), "PreStart")>
 Namespace App_Start
 	Public Class EntityFrameworkProfilerBootstrapper
         Public Shared Sub PreStart()

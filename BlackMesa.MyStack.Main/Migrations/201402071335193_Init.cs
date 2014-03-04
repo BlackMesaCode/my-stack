@@ -3,7 +3,7 @@ namespace BlackMesa.MyStack.Main.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ProtoInit : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {

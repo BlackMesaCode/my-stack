@@ -7,13 +7,13 @@ namespace BlackMesa.MyStack.Main.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class ProtoInit : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ProtoInit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201402061717265_ProtoInit"; }
+            get { return "201402071335193_Init"; }
         }
         
         string IMigrationMetadata.Source
