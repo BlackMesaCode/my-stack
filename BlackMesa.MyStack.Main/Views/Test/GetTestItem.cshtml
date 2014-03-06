@@ -1,0 +1,124 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@using BlackMesa.MyStack.Main.Utilities
+
+@model BlackMesa.MyStack.Main.ViewModels.Test.TestItemViewModel
+
+@{
+    ViewBag.Title = Strings.Test;
+}
+
+<div id="content">
+
+    <section id="test-item-show">
+
+        @using (Html.BeginForm("SaveTestItem", "Test"))
+        {
+            @Html.AntiForgeryToken()
+
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            @Html.HiddenFor(model => model.FolderId)
+            @Html.HiddenFor(model => model.TestId)
+            @Html.HiddenFor(model => model.CardId)
+            @Html.HiddenFor(model => model.StartTime)
+
+
+            <div id="frontside">
+
+                <div class="tile-splitter">
+                    <div class="tile gray-darker">
+                        <h1>@Strings.FrontSide</h1>
+                    </div>
+
+                    <div class="tile gray-dark">
+                        <h1><i class="icon-pile"></i>@Model.CardsLeft</h1>
+                    </div>
+                </div>
+
+
+                <a class="frontside-backside-toggle" href="#">
+                    <div class="tile gray-light">
+                        <pre>@Model.FrontSide</pre>
+                    </div>
+
+                    @*<div class="tile gray-dark-hover">
+                        <i class="icon-flip"></i><h3>@Strings.FlipCard</h3>
+                    </div>*@
+                </a>
+
+            </div>
+
+
+            <div id="backside">
+
+                <div class="tile-splitter">
+                    <div class="tile gray-darker">
+                        <h1>@Strings.BackSide</h1>
+                    </div>
+
+                    <div class="tile gray-dark">
+                        <h1><i class="icon-pile"></i>@Model.CardsLeft</h1>
+                    </div>
+                </div>
+                
+                <a class="frontside-backside-toggle" href="#">
+                    <div class="tile gray-light">
+                        <pre>@Model.BackSide</pre>
+                    </div>
+                </a>
+            </div>
+            
+            <div id="result-buttons">
+
+                <div class="form-element-container">
+                    <button class="gray-dark-hover" type="submit" id="result" name="result" value="0">
+                        <i class="icon-happy"></i>@Strings.TestResultCorrect
+                    </button>
+                </div>
+
+
+                <div class="form-element-container">
+                    <button class="gray-dark-hover" type="submit" id="result" name="result" value="1">
+                        <i class="icon-neutral"></i>@Strings.TestResultPartlyCorrect
+                    </button>
+                </div>
+
+
+                <div class="form-element-container">
+                    <button class="gray-dark-hover" type="submit" id="result" name="result" value="2">
+                        <i class="icon-unhappy"></i>@Strings.TestResultWrong
+                    </button>
+                </div>
+
+            </div>
+            
+            
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>
+
+
+@section Scripts {
+    <script src="~/Javascript/test-show.js"></script>
+}
+
+

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using BlackMesa.MyStack.Main.Resources;
-using BlackMesa.MyStack.Main.ViewModels.Query;
+using BlackMesa.MyStack.Main.ViewModels.Test;
 
 namespace BlackMesa.MyStack.Main.Models
 {

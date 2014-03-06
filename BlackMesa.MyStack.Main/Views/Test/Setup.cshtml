@@ -1,0 +1,81 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@using BlackMesa.MyStack.Main.Utilities
+
+@model BlackMesa.MyStack.Main.ViewModels.Test.SetupTestViewModel
+
+@{
+    ViewBag.Title = Strings.SetupTest;
+}
+
+<div id="content">
+
+    <section id="test-setup">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+            
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            
+            @Html.HiddenFor(model => model.FolderId)
+
+            <div class="tile gray-dark">
+                <h3>@Strings.General</h3>
+            </div>
+
+            <label class="tile gray-light-hover" for="_TestOnlyDueCards">
+                @Html.CheckBoxFor(model => model.TestOnlyDueCards, new { @id = "_TestOnlyDueCards" }) @Strings.TestOnlyDueCards
+            </label>
+
+            <label class="tile gray-light-hover" for="_ReverseSides">
+                @Html.CheckBoxFor(model => model.ReverseSides, new { @id = "_ReverseSides" }) @Strings.ReverseSides
+            </label>
+
+
+            <div class="tile gray-dark">
+                <h3>@Html.LabelFor(model => Model.OrderType)</h3>
+            </div>
+            
+
+            @Html.RadioButtonForEnum(model => model.OrderType)
+
+            <div class="tile gray-dark">
+                <h3>@Html.LabelFor(model => Model.TestType)</h3>
+            </div>
+            
+            
+            @Html.RadioButtonForEnum(model => model.TestType)
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    @Strings.StartTest
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+    
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>
+

@@ -1,0 +1,64 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@using BlackMesa.MyStack.Main.Utilities
+
+@model BlackMesa.MyStack.Main.ViewModels.Test.TestCompletedViewModel
+
+@{
+    ViewBag.Title = Strings.TestCompleted;
+}
+
+<div id="content">
+
+    <section id="test-completed">
+        
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        
+        <div class="tile gray-light">
+            @Strings.TestedCards: @Model.TotalCount
+        </div>
+        
+        <div class="tile gray-dark">
+            <h3>@Strings.Results</h3>
+        </div>
+        
+        <div class="tile gray-light">
+            @Strings.TestResultCorrect: @Model.CorrectCount
+        </div>
+        
+        <div class="tile gray-light">
+            @Strings.TestResultPartlyCorrect: @Model.PartlyCorrectCount
+        </div>
+
+        <div class="tile gray-light">
+            @Strings.TestResultWrong: @Model.WrongCount
+        </div> 
+        
+        <div class="tile gray-light">
+            @Strings.TimeNeeded: @Utilities.PrintTimeSpan(Model.Duration.Seconds)
+        </div>
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Back">
+        <i class="icon-list"></i>
+    </a>
+
+</nav>
+
+
+@section Scripts {
+    
+}
+
+

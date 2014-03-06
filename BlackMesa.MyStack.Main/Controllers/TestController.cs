@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using BlackMesa.MyStack.Main.DataLayer;
 using BlackMesa.MyStack.Main.Models;
 using BlackMesa.MyStack.Main.Utilities;
-using BlackMesa.MyStack.Main.ViewModels.Query;
+using BlackMesa.MyStack.Main.ViewModels.Test;
 
 namespace BlackMesa.MyStack.Main.Controllers
 {

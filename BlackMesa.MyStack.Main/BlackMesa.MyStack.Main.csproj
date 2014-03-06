@@ -206,9 +206,9 @@
     <Compile Include="ViewModels\Selection\DeleteViewModel.cs" />
     <Compile Include="ViewModels\Card\EditViewModel.cs" />
     <Compile Include="ViewModels\Card\CreateViewModel.cs" />
-    <Compile Include="ViewModels\Query\TestCompletedViewModel.cs" />
-    <Compile Include="ViewModels\Query\SetupTestViewModel.cs" />
-    <Compile Include="ViewModels\Query\TestItemViewModel.cs" />
+    <Compile Include="ViewModels\Test\TestCompletedViewModel.cs" />
+    <Compile Include="ViewModels\Test\SetupTestViewModel.cs" />
+    <Compile Include="ViewModels\Test\TestItemViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="DataLayer\DbContext.cs" />
@@ -301,6 +301,9 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Localhost.pubxml" />
+    <Content Include="Views\Test\Completed.cshtml" />
+    <Content Include="Views\Test\GetTestItem.cshtml" />
+    <Content Include="Views\Test\Setup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
