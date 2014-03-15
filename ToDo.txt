@@ -2,6 +2,8 @@
 ToDo
 ---------------------------------------------------------------------------------
 
+quick edit funktion während abfrage oder während des durchblätterns
+
 checken ob beim löschen einer karte auch seine testitems mitgelöscht werden
 
 make select & deselect clientside with js / or jus send small ajax  - and then pass list of selectedItems to selection options controller

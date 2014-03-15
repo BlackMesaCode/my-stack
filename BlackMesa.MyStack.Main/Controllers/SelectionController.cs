@@ -213,9 +213,9 @@ namespace BlackMesa.MyStack.Main.Controllers
             foreach (var card in folderToSearch.Cards.Where(u => (onlySelected && u.IsSelected) || !onlySelected))
             {
                 var frontSide = card.FrontSide;
-                var frontSideLowered = card.FrontSide.ToLower();
+                var frontSideLowered = frontSide == null ? String.Empty : card.FrontSide.ToLower();
                 var backSide = card.BackSide;
-                var backSideLowered = card.BackSide.ToLower();
+                var backSideLowered = backSide == null ? String.Empty : card.BackSide.ToLower();
 
                 if ((searchFrontSide && frontSideLowered.Contains(searchText)) || (searchBackSide && backSideLowered.Contains(searchText)))
                 {
