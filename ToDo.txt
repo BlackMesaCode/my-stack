@@ -2,6 +2,8 @@
 ToDo
 ---------------------------------------------------------------------------------
 
+import xml must not be null check
+
 quick edit funktion während abfrage oder während des durchblätterns
 
 checken ob beim löschen einer karte auch seine testitems mitgelöscht werden

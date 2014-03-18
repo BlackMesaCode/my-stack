@@ -184,9 +184,9 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\FolderController.cs" />
-    <Compile Include="Migrations\201402071335193_Init.cs" />
-    <Compile Include="Migrations\201402071335193_Init.Designer.cs">
-      <DependentUpon>201402071335193_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201403180827318_Init.cs" />
+    <Compile Include="Migrations\201403180827318_Init.Designer.cs">
+      <DependentUpon>201403180827318_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Folder\AddOptionsViewModel.cs" />
     <Compile Include="ViewModels\Selection\BrowseViewModel.cs" />
@@ -314,8 +314,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201402071335193_Init.resx">
-      <DependentUpon>201402071335193_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201403180827318_Init.resx">
+      <DependentUpon>201403180827318_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

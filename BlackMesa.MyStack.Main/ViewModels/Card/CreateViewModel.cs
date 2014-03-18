@@ -6,10 +6,10 @@ namespace BlackMesa.MyStack.Main.ViewModels.Card
     {
         public string FolderId { get; set; }
 
-        [StringLength(255)]
+        [StringLength(500)]
         public string FrontSide { get; set; }
 
-        [StringLength(10000)]
+        [StringLength(100000)]
         [DataType(DataType.MultilineText)]
         public string BackSide { get; set; }
 

@@ -36,10 +36,10 @@ namespace BlackMesa.MyStack.Main.Models
 
         public virtual List<TestItem> TestItems { get; set; }
 
-        //[StringLength(255)] // todo reactivate after population
+        [StringLength(500)]
         public string FrontSide { get; set; }
 
-        //[StringLength(10000)] // todo reactivate after population
+        [StringLength(100000)]
         [DataType(DataType.MultilineText)]
         public string BackSide { get; set; }
 
