@@ -4,24 +4,48 @@
     ViewBag.Title = Strings.Manage;
 }
 
-<h1>@ViewBag.Title</h1>
 
-@ViewBag.StatusMessage
+<div id="content">
 
-@if (ViewBag.HasLocalPassword)
-{
-    @Html.Partial("_ChangePasswordPartial")
-}
-else
-{
-    @Html.Partial("_SetPasswordPartial")
-}
+    <section id="manage">
+
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="form-element-container">
+            @ViewBag.StatusMessage
+        </div>
+
+        
+        @Html.Partial("_ChangePasswordPartial")
+
+        @*@if (ViewBag.HasLocalPassword)
+        {
+            @Html.Partial("_ChangePasswordPartial")
+        }
+        else
+        {
+            @Html.Partial("_SetPasswordPartial")
+        }
 
 
-@Html.Action("RemoveAccountList")
+        @Html.Action("RemoveAccountList")
 
 
-@if (!Request.IsAuthenticated)
-{
-    @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-}
+        @if (!Request.IsAuthenticated)
+        {
+            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+        }*@
+
+    </section>
+</div>
+
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Index", "Home")" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>
