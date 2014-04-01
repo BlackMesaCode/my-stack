@@ -15,13 +15,44 @@
         </div>
 
         <div class="tile gray-light center">
-            <h3>subtitle</h3>
+            <p>
+                <p>@Strings.MyStackIntro</p>
+            </p>
+            
         </div>
+        
+        <nav>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="tile red-hover center" href="@Url.Action("Index", "Folder")">
+                    <h3><i class="icon-list"></i>@Strings.YourFolders</h3>
+                </a>
+                
+                <a class="tile red-hover center" href="@Url.Action("Manage", "Account")">
+                    <h3><i class="icon-cogs"></i>@Strings.Manage</h3>
+                </a>
+
+                <a class="tile red-hover center" href="@Url.Action("LogOff", "Account")">
+                    <h3><i class="icon-logout"></i>@Strings.Logout</h3>
+                </a>
+            }
+            else
+            {
+                <a class="tile red-hover center" href="@Url.Action("Login", "Account")">
+                    <h3><i class="icon-login"></i>@Strings.LogIn</h3>
+                </a>
+            }
+
+        </nav>
+        
 
     </section>
 </div>
 
-<nav id="menu">
+
+
+@*<nav id="menu">
 
     @if (User.Identity.IsAuthenticated)
     {
@@ -48,28 +79,9 @@
         </a>
     }
 
-</nav>
-
-
-
-@*<nav>
-
-    @if (user.identity.isauthenticated)
-    {
-        <a class="tile red-hover" href="@url.action("index", "folder")">
-            <h3><i class="icon-list"></i>@strings.yourfolders</h3>
-        </a>
-
-        <a class="tile red-hover" href="@url.action("index", "entry")">
-            <h3><i class="icon-logout"></i>@strings.logout</h3>
-        </a>
-    }
-    else
-    {
-        <a class="tile red-hover" href="@url.action("login", "account")">
-            <h3><i class="icon-login"></i>@strings.login</h3>
-        </a>
-    }
-
 </nav>*@
+
+
+
+
 

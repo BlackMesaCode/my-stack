@@ -645,4 +645,10 @@
   <data name="NoDueCards" xml:space="preserve">
     <value>Keine fälligen Karten</value>
   </data>
+  <data name="MyStackIntro" xml:space="preserve">
+    <value>Willkommen auf MyStack, deinem digitalen Karteikasten.</value>
+  </data>
+  <data name="MyStackDescription1" xml:space="preserve">
+    <value>Egal wo du gerade bist, du hast jederzeit Zugriff auf deine Karteikarten. Im Bus auf dem Weg zur Uni oder Zuhause auf der Couch. MyStack lässt sich mit Smartphones und Tablets genauso einfach bedienen wie mit PCs.</value>
+  </data>
 </root>

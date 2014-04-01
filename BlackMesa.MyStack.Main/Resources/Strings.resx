@@ -645,4 +645,10 @@
   <data name="NoDueCards" xml:space="preserve">
     <value>No due cards</value>
   </data>
+  <data name="MyStackIntro" xml:space="preserve">
+    <value>Welcome to MyStack, your digital card box.</value>
+  </data>
+  <data name="MyStackDescription1" xml:space="preserve">
+    <value>Whereever you are, you have access to your index cards at all times. In the bus on your way to school or at home on the couch. Using MyStack with smartphones or tablets is as simple as using your computer.</value>
+  </data>
 </root>
