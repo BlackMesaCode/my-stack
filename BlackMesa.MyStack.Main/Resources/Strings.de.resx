@@ -651,4 +651,19 @@
   <data name="MyStackDescription1" xml:space="preserve">
     <value>Egal wo du gerade bist, du hast jederzeit Zugriff auf deine Karteikarten. Im Bus auf dem Weg zur Uni oder Zuhause auf der Couch. MyStack lässt sich mit Smartphones und Tablets genauso einfach bedienen wie mit PCs.</value>
   </data>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>Accountverwaltung</value>
+  </data>
+  <data name="CardBox" xml:space="preserve">
+    <value>Karteikasten</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Sprache wechseln</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>Account schließen</value>
+  </data>
+  <data name="ConfirmCloseAccount" xml:space="preserve">
+    <value>Wollen Sie ihren Account wirklich schließen und alle damit verbundenen Daten endgültig löschen?</value>
+  </data>
 </root>

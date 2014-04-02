@@ -651,4 +651,19 @@
   <data name="MyStackDescription1" xml:space="preserve">
     <value>Whereever you are, you have access to your index cards at all times. In the bus on your way to school or at home on the couch. Using MyStack with smartphones or tablets is as simple as using your computer.</value>
   </data>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>Account management</value>
+  </data>
+  <data name="CardBox" xml:space="preserve">
+    <value>Card box</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Change language</value>
+  </data>
+  <data name="CloseAccount" xml:space="preserve">
+    <value>Close account</value>
+  </data>
+  <data name="ConfirmCloseAccount" xml:space="preserve">
+    <value>Do you really want to close your account and irretrievable delete all associated data?</value>
+  </data>
 </root>

@@ -79,6 +79,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Account management ähnelt.
+        /// </summary>
+        public static string AccountManagement {
+            get {
+                return ResourceManager.GetString("AccountManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add ähnelt.
         /// </summary>
         public static string Add {
@@ -196,6 +205,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Card box ähnelt.
+        /// </summary>
+        public static string CardBox {
+            get {
+                return ResourceManager.GetString("CardBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Index cards ähnelt.
         /// </summary>
         public static string Cards {
@@ -210,6 +228,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string CardsLeft {
             get {
                 return ResourceManager.GetString("CardsLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Change language ähnelt.
+        /// </summary>
+        public static string ChangeLanguage {
+            get {
+                return ResourceManager.GetString("ChangeLanguage", resourceCulture);
             }
         }
         
@@ -241,6 +268,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Close account ähnelt.
+        /// </summary>
+        public static string CloseAccount {
+            get {
+                return ResourceManager.GetString("CloseAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Comment ähnelt.
         /// </summary>
         public static string Comment {
@@ -264,6 +300,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string Completed {
             get {
                 return ResourceManager.GetString("Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to close your account and irretrievable delete all associated data? ähnelt.
+        /// </summary>
+        public static string ConfirmCloseAccount {
+            get {
+                return ResourceManager.GetString("ConfirmCloseAccount", resourceCulture);
             }
         }
         
