@@ -666,4 +666,7 @@
   <data name="ConfirmCloseAccount" xml:space="preserve">
     <value>Do you really want to close your account and irretrievable delete all associated data?</value>
   </data>
+  <data name="SelectPreferredLanguage" xml:space="preserve">
+    <value>Select preferred language</value>
+  </data>
 </root>

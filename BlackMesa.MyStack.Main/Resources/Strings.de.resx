@@ -666,4 +666,7 @@
   <data name="ConfirmCloseAccount" xml:space="preserve">
     <value>Wollen Sie ihren Account wirklich schließen und alle damit verbundenen Daten endgültig löschen?</value>
   </data>
+  <data name="SelectPreferredLanguage" xml:space="preserve">
+    <value>Wähle deine bevorzugte Sprache aus</value>
+  </data>
 </root>

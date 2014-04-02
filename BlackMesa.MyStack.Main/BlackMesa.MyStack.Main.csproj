@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201403180827318_Init.Designer.cs">
       <DependentUpon>201403180827318_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404021634522_Added culture attribute to user entity.cs" />
+    <Compile Include="Migrations\201404021634522_Added culture attribute to user entity.Designer.cs">
+      <DependentUpon>201404021634522_Added culture attribute to user entity.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Folder\AddOptionsViewModel.cs" />
     <Compile Include="ViewModels\Selection\BrowseViewModel.cs" />
     <Compile Include="ViewModels\Selection\ResetTestResultsViewModel.cs" />
@@ -305,6 +309,7 @@
     <Content Include="Views\Test\GetTestItem.cshtml" />
     <Content Include="Views\Test\Setup.cshtml" />
     <Content Include="Views\Account\Close.cshtml" />
+    <Content Include="Views\Account\ChangeCulture.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +322,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201403180827318_Init.resx">
       <DependentUpon>201403180827318_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404021634522_Added culture attribute to user entity.resx">
+      <DependentUpon>201404021634522_Added culture attribute to user entity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -347,7 +355,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53919</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53077/</IISUrl>
+          <IISUrl>http://localhost:53078/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

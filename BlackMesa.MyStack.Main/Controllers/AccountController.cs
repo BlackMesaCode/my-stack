@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using BlackMesa.MyStack.Main.DataLayer;
 using BlackMesa.MyStack.Main.Models;
 using BlackMesa.MyStack.Main.ViewModels.Account;
@@ -317,12 +318,30 @@ namespace BlackMesa.MyStack.Main.Controllers
         }
 
 
-        public ActionResult ChangeLanguage()
+        public ActionResult ChangeCulture()
         {
-            
-            return RedirectToAction("Index", "Home");
+            var viewModel = new ChangeCultureViewModel
+            {
+                SelectedCulture = RouteData.Values["culture"].ToString(),
+                Cultures = new SelectList(Global.AllowedCultures),
+            };
+            return View(viewModel);
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeCulture(ChangeCultureViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _myStackRepo.ChangeCulture(User.Identity.GetUserId(), viewModel.SelectedCulture);
+                RouteData.Values["culture"] = String.Empty;
+                RouteData.Values["language"] = String.Empty;
+                return RedirectToAction("Index", "Home");
+            }
+            return View(viewModel);
+        }
 
         public ActionResult Close()
         {
@@ -403,6 +422,8 @@ namespace BlackMesa.MyStack.Main.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
+            RouteData.Values["culture"] = String.Empty;
+            RouteData.Values["language"] = String.Empty;
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);

@@ -1,0 +1,52 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@model BlackMesa.MyStack.Main.ViewModels.Account.ChangeCultureViewModel
+
+@{
+    ViewBag.Title = Strings.ChangeLanguage;
+}
+
+<div id="content">
+
+    <section id="change-language">
+        
+        @using (Html.BeginForm("ChangeCulture", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+
+            <div class="form-element-container">
+                @Html.ValidationSummary()
+            </div>
+
+            <div class="form-element-container">
+                <p>@Strings.SelectPreferredLanguage: @Html.DropDownListFor(model => model.SelectedCulture, Model.Cultures)</p>
+            </div>
+
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    @Strings.Save
+                </button>
+            </div>
+
+
+        }
+        
+
+    </section>
+
+</div>
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Manage", "Account")" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

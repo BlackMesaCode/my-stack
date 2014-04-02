@@ -14,8 +14,8 @@ namespace BlackMesa.MyStack.Main.App_Start
             routes.MapRoute(
                 name: "Default",
                 url: "{culture}/{controller}/{action}/{id}",
-                defaults: new {culture = "de-DE", controller = "Home", action = "Index", id = UrlParameter.Optional},
-                constraints: new {culture = Global.CultureConstraints},
+                defaults: new {culture = "", controller = "Home", action = "Index", id = UrlParameter.Optional},
+                //constraints: new {culture = Global.CultureConstraints},
                 namespaces: new[] { "BlackMesa.MyStack.Main.Controllers" }
                 );
         }

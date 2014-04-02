@@ -498,5 +498,14 @@ namespace BlackMesa.MyStack.Main.DataLayer
             _dbContext.Users.Remove(userToDelete);
             _dbContext.SaveChanges();
         }
+
+        public void ChangeCulture(string userId, string newCulture)
+        {
+            var currentUser = _dbContext.Users.Find(userId);
+            currentUser.Culture = newCulture;
+            _dbContext.SaveChanges();
+        }
+
+
     }
 }

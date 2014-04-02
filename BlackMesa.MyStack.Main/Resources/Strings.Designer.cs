@@ -1375,6 +1375,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select preferred language ähnelt.
+        /// </summary>
+        public static string SelectPreferredLanguage {
+            get {
+                return ResourceManager.GetString("SelectPreferredLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Select target folder ähnelt.
         /// </summary>
         public static string SelectTargetFolder {

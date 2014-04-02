@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using BlackMesa.MyStack.Main.Resources;
 
 namespace BlackMesa.MyStack.Main.ViewModels.Account
@@ -25,7 +26,7 @@ namespace BlackMesa.MyStack.Main.ViewModels.Account
 
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(Strings), Name = "ConfirmPassword")]
-        [Compare("NewPassword", ErrorMessageResourceType = typeof(Strings), ErrorMessageResourceName= "PasswordsDontMatch")]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessageResourceType = typeof(Strings), ErrorMessageResourceName= "PasswordsDontMatch")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -58,7 +59,15 @@ namespace BlackMesa.MyStack.Main.ViewModels.Account
 
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(Strings), Name = "ConfirmPassword")]
-        [Compare("Password", ErrorMessageResourceType = typeof(Strings), ErrorMessageResourceName = "PasswordsDontMatch")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessageResourceType = typeof(Strings), ErrorMessageResourceName = "PasswordsDontMatch")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class ChangeCultureViewModel
+    {
+        public string SelectedCulture { get; set; }
+        public SelectList Cultures { get; set; }
+    }
+    
+
 }
