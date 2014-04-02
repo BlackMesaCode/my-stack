@@ -4,33 +4,61 @@
     ViewBag.Title = Strings.Register;
 }
 
-<section id="register">
+<div id="content">
 
-    <h1>@ViewBag.Title</h1>
-    
-    <section id="register-local-account">
+    <section id="register">
 
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
 
-            <h3>@Strings.UseLocalAccount</h3>
-            
-            @Html.ValidationSummary()
+        <section id="register-local-account">
 
-            @Html.LabelFor(m => m.UserName)
-            @Html.TextBoxFor(m => m.UserName)
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
 
-            @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password)
+                @*<h3>@Strings.UseLocalAccount</h3>*@
 
-            @Html.LabelFor(m => m.ConfirmPassword)
-            @Html.PasswordFor(m => m.ConfirmPassword)
+                <div class="form-element-container">
+                    @Html.ValidationSummary()
+                </div>
 
-            <input type="submit" value="@Strings.Register" />
-        }
+                <div class="form-element-container">
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                </div>
+
+                <div class="form-element-container">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                </div>
+
+                <div class="form-element-container">
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                </div>
+
+                <div class="form-element-container">
+                    <button class="gray-dark-hover" type="submit">
+                        @Strings.Register
+                    </button>
+
+                </div>
+            }
+
+        </section>
+
+        @*@Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })*@
+
     </section>
-    
-    @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+</div>
+        
 
-</section>
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Index", "Home")" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>

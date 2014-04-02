@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using BlackMesa.MyStack.Main.DataLayer;
@@ -13,6 +14,9 @@ namespace BlackMesa.MyStack.Main.Controllers
     [Authorize]
     public class AccountController : BaseController
     {
+
+        private readonly MyStackRepository _myStackRepo = new MyStackRepository(new MyStackDbContext());
+
         public AccountController()
             : this(new UserManager<User>(new UserStore<User>(new MyStackDbContext())))
         {
@@ -123,8 +127,15 @@ namespace BlackMesa.MyStack.Main.Controllers
                 : message == ManageMessageId.RemoveLoginSuccess ? "Die externe Anmeldung wurde entfernt."
                 : message == ManageMessageId.Error ? "Fehler"
                 : "";
+            return View();
+        }
+
+        //
+        // GET: /Account/ChangePassword
+        public ActionResult ChangePassword(ManageMessageId? message)
+        {
             ViewBag.HasLocalPassword = HasPassword();
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.ReturnUrl = Url.Action("ChangePassword");
             return View();
         }
 
@@ -132,11 +143,11 @@ namespace BlackMesa.MyStack.Main.Controllers
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Manage(ManageUserViewModel model)
+        public async Task<ActionResult> ChangePassword(ManageUserViewModel model)
         {
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.ReturnUrl = Url.Action("ChangePassword");
             if (hasPassword)
             {
                 if (ModelState.IsValid)
@@ -304,6 +315,36 @@ namespace BlackMesa.MyStack.Main.Controllers
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
         }
+
+
+        public ActionResult ChangeLanguage()
+        {
+            
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        public ActionResult Close()
+        {
+            
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Close(int? result)
+        {
+            var userId = User.Identity.GetUserId();
+            var rootFolder = _myStackRepo.GetRootFolder(User.Identity.GetUserId());
+            if(rootFolder != null)
+                _myStackRepo.RemoveFolder(rootFolder.Id.ToString(), true);
+            AuthenticationManager.SignOut();
+            
+            _myStackRepo.RemoveUser(userId);
+            return RedirectToAction("Index", "Home");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -1,7 +1,7 @@
 ﻿@using BlackMesa.MyStack.Main.Resources
 @using Microsoft.AspNet.Identity;
 @{
-    ViewBag.Title = Strings.Manage;
+    ViewBag.Title = Strings.AccountManagement;
 }
 
 
@@ -12,31 +12,23 @@
         <div class="tile gray-darker">
             <h1>@ViewBag.Title</h1>
         </div>
-
+        
         <div class="form-element-container">
             @ViewBag.StatusMessage
         </div>
 
+        <a class="tile gray-light-hover" href="@Url.Action("ChangePassword", "Account")">
+            <i class="icon-ol"></i>@Strings.ChangePassword
+        </a>
         
-        @Html.Partial("_ChangePasswordPartial")
+        <a class="tile gray-light-hover" href="@Url.Action("ChangeLanguage", "Account")">
+            <i class="icon-ol"></i>@Strings.ChangeLanguage
+        </a>
 
-        @*@if (ViewBag.HasLocalPassword)
-        {
-            @Html.Partial("_ChangePasswordPartial")
-        }
-        else
-        {
-            @Html.Partial("_SetPasswordPartial")
-        }
+        <a class="tile gray-light-hover" href="@Url.Action("Close", "Account")">
+            <i class="icon-ol"></i>@Strings.CloseAccount
+        </a>
 
-
-        @Html.Action("RemoveAccountList")
-
-
-        @if (!Request.IsAuthenticated)
-        {
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        }*@
 
     </section>
 </div>

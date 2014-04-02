@@ -1,0 +1,53 @@
+﻿@using BlackMesa.MyStack.Main.Resources
+@model BlackMesa.MyStack.Main.ViewModels.Account.ManageUserViewModel
+
+@{
+    ViewBag.Title = Strings.CloseAccount;
+}
+
+<div id="content">
+
+    <section id="close-account">
+        
+        @using (Html.BeginForm("Close", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+            
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="tile gray-light">
+                @Strings.ConfirmCloseAccount
+            </div>
+            
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    <i class="icon-warning"></i>@Strings.PerformDeletion
+                </button>
+            </div>
+
+
+        }
+        
+    </section>
+
+</div>
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Manage", "Account")" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

@@ -137,11 +137,11 @@ namespace BlackMesa.MyStack.Main.DataLayer
         }
 
 
-        public void RemoveFolder(string folderId)
+        public void RemoveFolder(string folderId, bool skipRootCheck = false)
         {
             var folderToDelete = _dbContext.MyStack_Folders.Find(new Guid(folderId));
 
-            if (folderToDelete.IsRootFolder)
+            if (!skipRootCheck && folderToDelete.IsRootFolder)
                 throw new Exception("Root folder must not be deleted.");
 
             for (var i = folderToDelete.Cards.Count-1; i >= 0; i--)
@@ -489,6 +489,14 @@ namespace BlackMesa.MyStack.Main.DataLayer
         }
 
 
+        // ================================ Users ================================ //
 
+
+        public void RemoveUser(string userId)
+        {
+            var userToDelete = _dbContext.Users.Find(userId);
+            _dbContext.Users.Remove(userToDelete);
+            _dbContext.SaveChanges();
+        }
     }
 }

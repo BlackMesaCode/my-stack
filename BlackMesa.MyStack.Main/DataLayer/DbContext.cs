@@ -23,7 +23,6 @@ namespace BlackMesa.MyStack.Main.DataLayer
         public DbSet<TestItem> MyStack_TestItems { get; set; }
 
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

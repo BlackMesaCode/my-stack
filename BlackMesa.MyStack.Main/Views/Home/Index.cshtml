@@ -26,11 +26,11 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <a class="tile red-hover center" href="@Url.Action("Index", "Folder")">
-                    <h3><i class="icon-list"></i>@Strings.YourFolders</h3>
+                    <h3><i class="icon-list"></i>@Strings.CardBox</h3>
                 </a>
                 
                 <a class="tile red-hover center" href="@Url.Action("Manage", "Account")">
-                    <h3><i class="icon-cogs"></i>@Strings.Manage</h3>
+                    <h3><i class="icon-cogs"></i>@Strings.AccountManagement</h3>
                 </a>
 
                 <a class="tile red-hover center" href="@Url.Action("LogOff", "Account")">
@@ -41,6 +41,10 @@
             {
                 <a class="tile red-hover center" href="@Url.Action("Login", "Account")">
                     <h3><i class="icon-login"></i>@Strings.LogIn</h3>
+                </a>
+
+                <a class="tile red-hover center" href="@Url.Action("Register", "Account")">
+                    <h3><i class="icon-register"></i>@Strings.Register</h3>
                 </a>
             }
 
