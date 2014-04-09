@@ -2,6 +2,13 @@
 ToDo
 ---------------------------------------------------------------------------------
 
+Beschreibungstexte
+Willkommen auf MyStack, deinem digitalen Karteikasten. Egal wo du gerade bist, du hast jederzeit Zugriff auf deine Karteikarten. Im Bus auf dem Weg zur Uni oder Zuhause auf der Couch. MyStack lässt sich mit Smartphones und Tablets genauso einfach bedienen wie mit PCs.
+
+MyStack ist schlau und gibt dir Empfehlungen, wann du bestimmte Lerninhalte wiederholen solltest. 
+
+
+
 import xml must not be null check
 
 quick edit funktion während abfrage oder während des durchblätterns
@@ -15,6 +22,7 @@ dein digitaler karteikasten für daheim und unterwegs
 
 Statistik Konzept erarbeiten
 parse backside and frontside content for urls to make them clickable
+
 recherche: .net text-to-speach audio generator
 
 

@@ -35,6 +35,22 @@ namespace BlackMesa.MyStack.Main.Controllers
             return RedirectToAction("Details", "Folder", new { id = returnFolderId, deSelect = false });
         }
 
+
+        public ActionResult AddFolderAjax(string folderId)
+        {
+            var folder = _myStackRepo.GetFolder(folderId);
+            _myStackRepo.SelectFolder(folder);
+            return PartialView("_AddFolder", folderId);
+        }
+
+        public ActionResult RemoveFolderAjax(string folderId)
+        {
+            var folder = _myStackRepo.GetFolder(folderId);
+            _myStackRepo.DeSelectFolder(folder);
+            return PartialView("_RemoveFolder", folderId);
+        }
+
+
         public ActionResult AddCard(string cardId, string returnFolderId)
         {
             var card = _myStackRepo.GetCard(cardId);
@@ -47,6 +63,20 @@ namespace BlackMesa.MyStack.Main.Controllers
             var card = _myStackRepo.GetCard(cardId);
             _myStackRepo.DeSelectCard(card);
             return RedirectToAction("Details", "Folder", new { id = returnFolderId, deSelect = false });
+        }
+
+        public ActionResult AddCardAjax(string cardId)
+        {
+            var card = _myStackRepo.GetCard(cardId);
+            _myStackRepo.SelectCard(card);
+            return PartialView("_AddCard", cardId);
+        }
+
+        public ActionResult RemoveCardAjax(string cardId)
+        {
+            var card = _myStackRepo.GetCard(cardId);
+            _myStackRepo.DeSelectCard(card);
+            return PartialView("_RemoveCard", cardId);
         }
 
 

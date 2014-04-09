@@ -28,7 +28,7 @@
                     <h1><i class="icon-folder-open"></i>@ViewBag.Title</h1>
                 </a>
             }
-            
+
             @if (Model.DueCards > 0)
             {
                 <div class="tile gray-darker has-due-cards" title="@Strings.NumberOfDueCards">
@@ -41,7 +41,7 @@
                     <i class="icon-thumbs-up"></i>
                 </div>
             }
-            
+
 
             @if (Model.IsSelected)
             {
@@ -66,7 +66,7 @@
                         <i class="icon-folder"> </i>@subFolder.Name
                     </a>
                     @{
-                        var dueCardsInFolder = Model.DueCardsPerSubfolder[subFolder.Id.ToString()];
+                var dueCardsInFolder = Model.DueCardsPerSubfolder[subFolder.Id.ToString()];
                     }
                     @if (dueCardsInFolder > 0)
                     {
@@ -80,19 +80,34 @@
                             <i class="icon-thumbs-up"></i>
                         </div>
                     }
-                    
+
 
                     @if (subFolder.IsSelected)
                     {
-                        <a class="tile gray-light-hover checked" href="@Url.Action("RemoveFolder", "Selection", new { folderId = subFolder.Id, returnFolderId = Model.Id })">
+                        <div id="@subFolder.Id-checkbox">
+                            <a class="tile gray-light-hover checked" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#@subFolder.Id-checkbox"
+                                href="/de-DE/Selection/RemoveFolderAjax?folderId=@subFolder.Id">
+                                <i class="icon-checked-square"></i>
+                            </a>
+                        </div>
+                        
+                        @*<a class="tile gray-light-hover checked" href="@Url.Action("RemoveFolder", "Selection", new { folderId = subFolder.Id, returnFolderId = Model.Id })">
                             <i class="icon-checked-square"></i>
-                        </a>
+                        </a>*@
                     }
                     else
                     {
-                        <a class="tile gray-light-hover unchecked" href="@Url.Action("AddFolder", "Selection", new { folderId = subFolder.Id, returnFolderId = Model.Id })">
+                        <div id="@subFolder.Id-checkbox">
+                            <a class="tile gray-light-hover unchecked" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#@subFolder.Id-checkbox"
+                               href="/de-DE/Selection/AddFolderAjax?folderId=@subFolder.Id">
+                                <i class="icon-unchecked-square"></i>
+                            </a>
+                        </div>
+                        
+                        
+                        @*<a class="tile gray-light-hover unchecked" href="@Url.Action("AddFolder", "Selection", new { folderId = subFolder.Id, returnFolderId = Model.Id })">
                             <i class="icon-unchecked-square"></i>
-                        </a>
+                        </a>*@
                     }
                 </div>
             }
@@ -107,21 +122,38 @@
 
                     @if (card.IsSelected)
                     {
-                        <a class="tile gray-light-hover checked" href="@Url.Action("RemoveCard", "Selection", new { cardId = card.Id, returnFolderId = Model.Id })">
+                        <div id="@card.Id-checkbox">
+                            <a class="tile gray-light-hover checked" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#@card.Id-checkbox"
+                               href="/de-DE/Selection/RemoveCardAjax?cardId=@card.Id">
+                                <i class="icon-checked-square"></i>
+                            </a>
+                        </div>
+                        
+                         @*<a class="tile gray-light-hover checked" href="@Url.Action("RemoveCard", "Selection", new { cardId = card.Id, returnFolderId = Model.Id })">
                             <i class="icon-checked-square"></i>
-                        </a>
+                         </a>*@
+
                     }
                     else
                     {
-                        <a class="tile gray-light-hover unchecked" href="@Url.Action("AddCard", "Selection", new { cardId = card.Id, returnFolderId = Model.Id })">
+                        <div id="@card.Id-checkbox">
+                            <a class="tile gray-light-hover unchecked" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#@card.Id-checkbox"
+                               href="/de-DE/Selection/AddCardAjax?cardId=@card.Id">
+                                <i class="icon-unchecked-square"></i>
+                            </a>
+                        </div>
+                        
+                        @*<a class="tile gray-light-hover unchecked" href="@Url.Action("AddCard", "Selection", new { cardId = card.Id, returnFolderId = Model.Id })">
                             <i class="icon-unchecked-square"></i>
-                        </a>
+                        </a>*@
                     }
                 </div>
             }
 
         </div>
     </section>
+
+
 
     
 </div>

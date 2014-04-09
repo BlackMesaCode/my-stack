@@ -254,6 +254,11 @@
     <Content Include="Javascript\test-show.js" />
     <Content Include="Javascript\mystack.js" />
     <Content Include="Images\mystack_logo.png" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Folder\Edit.cshtml" />
     <Content Include="Views\Selection\_FolderListItem.cshtml" />
     <Content Include="Views\Folder\Create.cshtml" />
@@ -310,6 +315,11 @@
     <Content Include="Views\Test\Setup.cshtml" />
     <Content Include="Views\Account\Close.cshtml" />
     <Content Include="Views\Account\ChangeCulture.cshtml" />
+    <Content Include="Views\Selection\_AddCard.cshtml" />
+    <Content Include="Views\Selection\_RemoveCard.cshtml" />
+    <Content Include="Views\Selection\mystack.less" />
+    <Content Include="Views\Selection\_RemoveFolder.cshtml" />
+    <Content Include="Views\Selection\_AddFolder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
