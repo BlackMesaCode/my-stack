@@ -317,7 +317,6 @@
     <Content Include="Views\Account\ChangeCulture.cshtml" />
     <Content Include="Views\Selection\_AddCard.cshtml" />
     <Content Include="Views\Selection\_RemoveCard.cshtml" />
-    <Content Include="Views\Selection\mystack.less" />
     <Content Include="Views\Selection\_RemoveFolder.cshtml" />
     <Content Include="Views\Selection\_AddFolder.cshtml" />
   </ItemGroup>

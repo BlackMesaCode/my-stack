@@ -345,7 +345,7 @@ html, body {
     padding-right: 15px;
 }
 
-#menu, .submenu {
+#menu, .submenu, #has-any-selection-menu, #has-none-selection-menu {
 
     padding: @offset;
     /*.flex-grow(1);*/
@@ -365,6 +365,8 @@ html, body {
 
         font-size: 1.4em;
     }
+
+
 }
 
 
@@ -381,7 +383,7 @@ html, body {
         /*height: 100%;*/
     }
 
-    #menu, .submenu {
+    #menu, .submenu, #has-any-selection-menu, #has-none-selection-menu {
         width: @navsize;
         .flex-direction(column);
     }
@@ -401,7 +403,7 @@ html, body {
         /*width: 100%;*/
     }
 
-    #menu, .submenu {
+    #menu, .submenu, #has-any-selection-menu, #has-none-selection-menu {
         height: @navsize;
         .flex-direction(row);
         .flex-wrap(wrap);
