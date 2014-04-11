@@ -151,6 +151,33 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Average answer time ähnelt.
+        /// </summary>
+        public static string AverageAnwserTime {
+            get {
+                return ResourceManager.GetString("AverageAnwserTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Average level ähnelt.
+        /// </summary>
+        public static string AverageLevel {
+            get {
+                return ResourceManager.GetString("AverageLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Average repititions ähnelt.
+        /// </summary>
+        public static string AverageRepititions {
+            get {
+                return ResourceManager.GetString("AverageRepititions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Back ähnelt.
         /// </summary>
         public static string Back {
@@ -349,6 +376,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Correctly answered ähnelt.
+        /// </summary>
+        public static string CorrectCount {
+            get {
+                return ResourceManager.GetString("CorrectCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Create ähnelt.
         /// </summary>
         public static string Create {
@@ -471,6 +507,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string Download {
             get {
                 return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Number of due cards ähnelt.
+        /// </summary>
+        public static string DueCount {
+            get {
+                return ResourceManager.GetString("DueCount", resourceCulture);
             }
         }
         
@@ -934,6 +979,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partly correct answered ähnelt.
+        /// </summary>
+        public static string PartlyCorrectCount {
+            get {
+                return ResourceManager.GetString("PartlyCorrectCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Password ähnelt.
         /// </summary>
         public static string Password {
@@ -1321,6 +1375,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Number of selected cards ähnelt.
+        /// </summary>
+        public static string SelectedCount {
+            get {
+                return ResourceManager.GetString("SelectedCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Selected elements ähnelt.
         /// </summary>
         public static string SelectedElements {
@@ -1528,6 +1591,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Number of administered tests ähnelt.
+        /// </summary>
+        public static string TestItemsCount {
+            get {
+                return ResourceManager.GetString("TestItemsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Test only due cards ähnelt.
         /// </summary>
         public static string TestOnlyDueCards {
@@ -1659,6 +1731,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string WhereDoYouWantToSearch {
             get {
                 return ResourceManager.GetString("WhereDoYouWantToSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wrongly answered ähnelt.
+        /// </summary>
+        public static string WrongCount {
+            get {
+                return ResourceManager.GetString("WrongCount", resourceCulture);
             }
         }
         

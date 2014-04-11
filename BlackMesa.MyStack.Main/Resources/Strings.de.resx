@@ -669,4 +669,31 @@
   <data name="SelectPreferredLanguage" xml:space="preserve">
     <value>Wähle deine bevorzugte Sprache aus</value>
   </data>
+  <data name="AverageAnwserTime" xml:space="preserve">
+    <value>Durchschnittliche Antwortzeit</value>
+  </data>
+  <data name="AverageLevel" xml:space="preserve">
+    <value>Durchschnittslevel</value>
+  </data>
+  <data name="AverageRepititions" xml:space="preserve">
+    <value>Durchschnittliche Abfrageanzahl</value>
+  </data>
+  <data name="CorrectCount" xml:space="preserve">
+    <value>Korrekt beantwortet</value>
+  </data>
+  <data name="DueCount" xml:space="preserve">
+    <value>Anzahl fälliger Karteien</value>
+  </data>
+  <data name="PartlyCorrectCount" xml:space="preserve">
+    <value>Teilweise richtig beantwortet</value>
+  </data>
+  <data name="SelectedCount" xml:space="preserve">
+    <value>Anzahl ausgewähler Karteien</value>
+  </data>
+  <data name="TestItemsCount" xml:space="preserve">
+    <value>Anzahl durchgeführter Abfragen</value>
+  </data>
+  <data name="WrongCount" xml:space="preserve">
+    <value>Falsch beantwortet</value>
+  </data>
 </root>

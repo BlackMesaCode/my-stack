@@ -329,8 +329,53 @@ namespace BlackMesa.MyStack.Main.Controllers
         {
             var folder = _myStackRepo.GetFolder(id);
 
+            var cards = new List<Card>();
+            _myStackRepo.GetAllCardsInFolder(folder, ref cards, true);
+
+            var result = cards.Sum(c => c.TestItems.Count) == 0;
+            var correctPercentage = cards.Sum(c => c.TestItems.Count) == 0
+                ? 0d
+                : (cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct))/
+                   cards.Sum(c => c.TestItems.Count))*100;
+            var result2 = (cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct))/
+                           cards.Sum(c => c.TestItems.Count))*100;
+            var result3 = cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct));
+            var result4 = cards.Sum(c => c.TestItems.Count);
+            var result5 = ((double)result3 / (double)result4) * 100;
+
             var viewModel = new StatisticViewModel
             {
+                FolderId = id,
+
+                SelectedCount = cards.Count,
+
+                AverageAnwserTime = cards.Average(c => c.TestItems.Select(t => t.Duration.Seconds).DefaultIfEmpty().Average()),
+                AverageLevel = cards.Average(c => c.Level),
+                //AverageAge = cards.Average(c => c.DateCreated.Ticks),  // causes exception - maybe tick numbers are too big for Average()
+                AverageRepititions = cards.Average(c => c.TestItems.Count),
+
+                TestItemsCount = cards.Sum(c => c.TestItems.Count),
+
+                CorrectPercentage = cards.Sum(c => c.TestItems.Count) == 0 ? 0d :
+                    ((double)cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct)) / (double)cards.Sum(c => c.TestItems.Count)) * 100,
+                CorrectCount = cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct)),
+
+                PartlyCorrectPercentage = cards.Sum(c => c.TestItems.Count) == 0 ? 0d :
+                    ((double)cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.PartlyCorrect)) / (double)cards.Sum(c => c.TestItems.Count)) * 100,
+                PartlyCorrectCount = cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.PartlyCorrect)),
+
+                WrongPercentage = cards.Sum(c => c.TestItems.Count) == 0 ? 0d :
+                    ((double)cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Wrong)) / (double)cards.Sum(c => c.TestItems.Count)) * 100,
+                WrongCount = cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Wrong)),
+
+                DuePercentage = cards.Count == 0 ? 0d : ((double)cards.Count(c => c.IsDue) / (double)cards.Count) * 100,
+                DueCount = cards.Count(c => c.IsDue),
+
+                LatestCard = cards.OrderByDescending(c => c.DateCreated).First(),
+                OldestCard = cards.OrderBy(c => c.DateCreated).First(),
+
+                TopCards = cards.OrderByDescending(c => c.Level).ThenBy(c => c.TestItems.Count(t => t.Result == TestResult.Correct)).Take(10),
+                FlopCards = cards.OrderBy(c => c.Level).ThenBy(c => c.TestItems.Count(t => t.Result == TestResult.Wrong)).Take(10),
 
             };
             return View(viewModel);

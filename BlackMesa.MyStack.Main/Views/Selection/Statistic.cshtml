@@ -20,12 +20,44 @@
         </div>
         
         <div class="tile gray-dark">
-            <h3>Submenu</h3>
+            <h3>@Strings.SelectedCount: @Model.SelectedCount</h3>
         </div>
         
         <div class="tile gray-light">
-            Infos
+            @Strings.AverageLevel: @Model.AverageLevel
         </div>
+
+        <div class="tile gray-light">
+            @Strings.AverageAnwserTime: @String.Format("{0:0.##}", Model.AverageAnwserTime)s
+        </div>
+        
+        <div class="tile gray-light">
+            @Strings.AverageRepititions: @Model.AverageRepititions
+        </div>
+
+        <div class="tile gray-light">
+            @Strings.DueCount: @Model.DueCount
+        </div>
+        
+        <div class="tile gray-dark">
+            <h3>@Strings.TestItemsCount: @Model.TestItemsCount</h3>
+        </div>
+
+        <div class="tile gray-light">
+            @Strings.CorrectCount: @String.Format("{0:0.##}", Model.CorrectPercentage)%  (@Model.CorrectCount)
+        </div>
+        
+        <div class="tile gray-light">
+            @Strings.PartlyCorrectCount: @String.Format("{0:0.##}", Model.PartlyCorrectPercentage)%  (@Model.PartlyCorrectCount)
+        </div>
+        
+        <div class="tile gray-light">
+            @Strings.WrongCount: @String.Format("{0:0.##}", Model.WrongPercentage)%  (@Model.WrongCount)
+        </div>
+        
+
+        
+
 
     </section>
 

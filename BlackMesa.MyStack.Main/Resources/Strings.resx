@@ -669,4 +669,31 @@
   <data name="SelectPreferredLanguage" xml:space="preserve">
     <value>Select preferred language</value>
   </data>
+  <data name="AverageAnwserTime" xml:space="preserve">
+    <value>Average answer time</value>
+  </data>
+  <data name="AverageLevel" xml:space="preserve">
+    <value>Average level</value>
+  </data>
+  <data name="AverageRepititions" xml:space="preserve">
+    <value>Average repititions</value>
+  </data>
+  <data name="CorrectCount" xml:space="preserve">
+    <value>Correctly answered</value>
+  </data>
+  <data name="DueCount" xml:space="preserve">
+    <value>Number of due cards</value>
+  </data>
+  <data name="PartlyCorrectCount" xml:space="preserve">
+    <value>Partly correct answered</value>
+  </data>
+  <data name="SelectedCount" xml:space="preserve">
+    <value>Number of selected cards</value>
+  </data>
+  <data name="TestItemsCount" xml:space="preserve">
+    <value>Number of administered tests</value>
+  </data>
+  <data name="WrongCount" xml:space="preserve">
+    <value>Wrongly answered</value>
+  </data>
 </root>
