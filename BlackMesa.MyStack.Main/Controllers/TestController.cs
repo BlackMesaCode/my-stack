@@ -138,7 +138,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                     TestId = testId,
                     CardId = card.Id.ToString(),
                     FrontSide = (test.ReverseSides ? card.BackSide : card.FrontSide),
-                    BackSide = (test.ReverseSides ? card.FrontSide : card.BackSide),
+                    BackSide = (test.ReverseSides ? card.FrontSide : card.BackSide).AddLinkTags(),
                     StartTime = DateTime.Now,
                     Result = TestResult.Correct,
                     CardsLeft = cardsLeft,

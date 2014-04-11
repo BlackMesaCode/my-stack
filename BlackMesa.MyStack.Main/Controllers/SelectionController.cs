@@ -479,6 +479,8 @@ namespace BlackMesa.MyStack.Main.Controllers
         }
 
 
+
+
         public ActionResult Browse(string folderId, int position, bool doInit = false)
         {
 
@@ -499,11 +501,12 @@ namespace BlackMesa.MyStack.Main.Controllers
 
 
             var browseList = Session["BrowseList"] as BrowseList;
+
             var viewModel = new BrowseViewModel
             {
                 FolderId = folderId,
                 FrontSide = browseList.Cards.ElementAt(position).FrontSide,
-                BackSide = browseList.Cards.ElementAt(position).BackSide,
+                BackSide = browseList.Cards.ElementAt(position).BackSide.AddLinkTags(),
                 CardsCount = browseList.CardsCount,
                 Position = position,
             };

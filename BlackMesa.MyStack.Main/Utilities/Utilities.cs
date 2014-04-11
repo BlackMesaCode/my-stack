@@ -6,10 +6,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Script.Serialization;
+using System.Web.UI.WebControls;
 
 namespace BlackMesa.MyStack.Main.Utilities
 {
@@ -284,6 +286,32 @@ namespace BlackMesa.MyStack.Main.Utilities
             }
 
             return answer;
+        }
+
+        public static string AddLinkTags(this string text)
+        {
+            var regEx = @"(http:|https:[/][/]|www.)+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?";
+            //var regExOld = @"(?<url>(http:|https:[/][/]|www.)([a-z]|[A-Z]|[0-9]|[/.]|[~])*)";
+            var urlRx = new Regex(regEx, RegexOptions.IgnoreCase);
+
+            MatchCollection matches = urlRx.Matches(text);
+
+
+            var offset = 0;
+            foreach (Match match in matches)
+            {
+                var url = match.Value;
+                if (!(url.StartsWith("http://") || url.StartsWith("https://")))
+                    url = "http://" + url;
+                string prefix = "<a target=\"_blank\" href=\"" + url + "\">";
+                string suffix = "</a>";
+
+                text = text.Insert(match.Index + offset, prefix);
+                offset += prefix.Length;
+                text = text.Insert(match.Index + match.Length + offset, suffix);
+                offset += suffix.Length;
+            }
+            return text;
         }
 
 
