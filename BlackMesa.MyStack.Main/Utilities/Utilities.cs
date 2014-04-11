@@ -315,5 +315,32 @@ namespace BlackMesa.MyStack.Main.Utilities
         }
 
 
+        public static string AddImageTags(this string text)
+        {
+            var regEx = @"/^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png|bmp)‌​$/i";
+            
+            var urlRx = new Regex(regEx, RegexOptions.IgnoreCase);
+
+            MatchCollection matches = urlRx.Matches(text);
+
+
+            var offset = 0;
+            foreach (Match match in matches)
+            {
+                var url = match.Value;
+                if (!(url.StartsWith("http://") || url.StartsWith("https://")))
+                    url = "http://" + url;
+                string prefix = "<img src=\"" + url + "\">";
+                string suffix = "</img>";
+
+                text = text.Insert(match.Index + offset, prefix);
+                offset += prefix.Length;
+                text = text.Insert(match.Index + match.Length + offset, suffix);
+                offset += suffix.Length;
+            }
+            return text;
+        }
+
+
     }
 }
