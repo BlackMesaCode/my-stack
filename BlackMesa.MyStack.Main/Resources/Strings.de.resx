@@ -726,4 +726,7 @@
   <data name="XmlParsingError" xml:space="preserve">
     <value>Der zu importierende XML Code konnte nicht validiert werden</value>
   </data>
+  <data name="CSVParsingError" xml:space="preserve">
+    <value>Dein CSV Code konnte nicht korrekt verarbeitet werden</value>
+  </data>
 </root>

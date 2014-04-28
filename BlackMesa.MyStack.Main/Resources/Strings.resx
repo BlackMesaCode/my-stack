@@ -726,4 +726,7 @@
   <data name="XmlParsingError" xml:space="preserve">
     <value>Your xml code could not be verified</value>
   </data>
+  <data name="CSVParsingError" xml:space="preserve">
+    <value>Your CSV code could not be parsed correctly</value>
+  </data>
 </root>

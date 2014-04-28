@@ -457,6 +457,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Your CSV code could not be parsed correctly ähnelt.
+        /// </summary>
+        public static string CSVParsingError {
+            get {
+                return ResourceManager.GetString("CSVParsingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Current password ähnelt.
         /// </summary>
         public static string CurrentPassword {

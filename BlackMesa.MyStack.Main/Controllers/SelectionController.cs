@@ -13,6 +13,7 @@ using BlackMesa.MyStack.Main.Utilities;
 using BlackMesa.MyStack.Main.ViewModels.Selection;
 using Microsoft.AspNet.Identity;
 
+
 namespace BlackMesa.MyStack.Main.Controllers
 {
     [Authorize]
@@ -447,6 +448,19 @@ namespace BlackMesa.MyStack.Main.Controllers
             }
         }
 
+
+        public ActionResult ImportCsv(string folderId)
+        {
+            var viewModel = new ImportCsvViewModel
+            {
+                FolderId = folderId,
+                SideDelimiter = Delimiter.Tab,
+                CardDelimiter = Delimiter.NewLine,
+            };
+            return View(viewModel);
+        }
+
+
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -454,16 +468,37 @@ namespace BlackMesa.MyStack.Main.Controllers
         {
             if (ModelState.IsValid)
             {
-                ParseCSV(viewModel.SerializationResult);
+                try
+                {
+                    ParseCSV(viewModel.SerializationResult, GetDelimiterString(viewModel.SideDelimiter),
+                        GetDelimiterString(viewModel.CardDelimiter), viewModel.FolderId);
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError(String.Empty, Strings.CSVParsingError);
+                    return View(viewModel);
+                }
+                
                 return RedirectToAction("Details", "Folder", new { id = viewModel.FolderId });
             }
             return View(viewModel);
         }
 
 
-        private void ParseCSV(string stringToParse)
+        private void ParseCSV(string stringToParse, string sideDelimiter, string cardDelimiter, string folderId)
         {
-            
+            var newFolderId = _myStackRepo.AddFolder("ImportedCSV", User.Identity.GetUserId(), folderId);
+            var cards = stringToParse.Split(new string[] {cardDelimiter}, StringSplitOptions.None);
+            if (cards == null)
+                throw new Exception();
+            foreach (var card in cards)
+            {
+                var sides = card.Split(new string[] {sideDelimiter}, StringSplitOptions.None);
+                if (sides.Length == 2)
+                    _myStackRepo.AddCard(newFolderId, User.Identity.GetUserId(), sides[0], sides[1], DateTime.Now);
+                else
+                    throw new Exception();
+            }
         }
 
 
@@ -503,7 +538,7 @@ namespace BlackMesa.MyStack.Main.Controllers
             {
                 FolderId = folderId,
                 SideDelimiter = Delimiter.Tab,
-                CardDelimiter = Delimiter.Semicolon,
+                CardDelimiter = Delimiter.NewLine,
             };
 
             return View(viewModel);
@@ -522,7 +557,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                     result = "\t";
                     break;
                 case Delimiter.NewLine:
-                    result = "\n\n";
+                    result = "\r\n";
                     break;
                 case Delimiter.Semicolon:
                     result = ";";
