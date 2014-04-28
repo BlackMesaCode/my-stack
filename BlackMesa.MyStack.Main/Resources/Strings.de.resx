@@ -696,4 +696,34 @@
   <data name="WrongCount" xml:space="preserve">
     <value>Falsch beantwortet</value>
   </data>
+  <data name="CardDelimiter" xml:space="preserve">
+    <value>Karteikarten Trennzeichen</value>
+  </data>
+  <data name="Comma" xml:space="preserve">
+    <value>Komma</value>
+  </data>
+  <data name="ExportAsCSVFile" xml:space="preserve">
+    <value>Als CSV Datei exportieren</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Generieren</value>
+  </data>
+  <data name="ImportFromCSV" xml:space="preserve">
+    <value>Aus CSV Datei importieren</value>
+  </data>
+  <data name="NewLine" xml:space="preserve">
+    <value>Zeilenumbruch</value>
+  </data>
+  <data name="Semicolon" xml:space="preserve">
+    <value>Strichpunkt</value>
+  </data>
+  <data name="SideDelimiter" xml:space="preserve">
+    <value>Vorderseite-Rückseite Trennzeichen</value>
+  </data>
+  <data name="Tab" xml:space="preserve">
+    <value>Tabulator</value>
+  </data>
+  <data name="XmlParsingError" xml:space="preserve">
+    <value>Der zu importierende XML Code konnte nicht validiert werden</value>
+  </data>
 </root>

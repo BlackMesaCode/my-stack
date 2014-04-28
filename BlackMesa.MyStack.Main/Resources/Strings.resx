@@ -598,10 +598,10 @@
     <value>Download</value>
   </data>
   <data name="ExportAsXmlFile" xml:space="preserve">
-    <value>Export as XML File</value>
+    <value>Export as XML file</value>
   </data>
   <data name="ImportFromXML" xml:space="preserve">
-    <value>Import from XML File</value>
+    <value>Import from XML file</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
@@ -695,5 +695,35 @@
   </data>
   <data name="WrongCount" xml:space="preserve">
     <value>Wrongly answered</value>
+  </data>
+  <data name="CardDelimiter" xml:space="preserve">
+    <value>Card delimiter</value>
+  </data>
+  <data name="Comma" xml:space="preserve">
+    <value>Comma</value>
+  </data>
+  <data name="ExportAsCSVFile" xml:space="preserve">
+    <value>Export as CSV file</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="ImportFromCSV" xml:space="preserve">
+    <value>Import from CSV file</value>
+  </data>
+  <data name="NewLine" xml:space="preserve">
+    <value>New line</value>
+  </data>
+  <data name="Semicolon" xml:space="preserve">
+    <value>Semicolon</value>
+  </data>
+  <data name="SideDelimiter" xml:space="preserve">
+    <value>Frontside-backside delimiter</value>
+  </data>
+  <data name="Tab" xml:space="preserve">
+    <value>Tab</value>
+  </data>
+  <data name="XmlParsingError" xml:space="preserve">
+    <value>Your xml code could not be verified</value>
   </data>
 </root>

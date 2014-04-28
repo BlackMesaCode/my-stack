@@ -30,6 +30,10 @@
         <a class="tile gray-light-hover" href="@Url.Action("Import", "Selection", new { folderId = Model.FolderId })">
             <i class="icon-import-unknown"></i>@Strings.ImportFromXML
         </a>
+        
+        <a class="tile gray-light-hover" href="@Url.Action("ImportCsv", "Selection", new { folderId = Model.FolderId })">
+            <i class="icon-import-unknown"></i>@Strings.ImportFromCSV
+        </a>
 
     </section>
 

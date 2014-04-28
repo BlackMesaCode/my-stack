@@ -1,0 +1,71 @@
+﻿@using BlackMesa.MyStack.Main.Utilities
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.ImportCsvViewModel
+
+@{
+    ViewBag.Title = Strings.ImportFromCSV;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+    <section id="selection-import-csv">
+        
+        @using (Html.BeginForm("ImportCsv", "Selection"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+            
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="tile gray-light">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="form-element-container">
+                @Html.TextAreaFor(model => model.SerializationResult, new { @autocomplete = "off", @autofocus = "", @autocorrect = "off", @rows = 10 })
+            </div>
+            
+            <div class="tile gray-dark">
+                <h3>@Html.LabelFor(model => Model.SideDelimiter)</h3>
+            </div>
+            
+            @Html.RadioButtonForEnum(model => model.SideDelimiter)
+            
+            <div class="tile gray-dark">
+                <h3>@Html.LabelFor(model => Model.CardDelimiter)</h3>
+            </div>
+            
+            @Html.RadioButtonForEnum(model => model.CardDelimiter)
+
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    <i class="icon-plus prefix-icon"></i><i class="icon-import-unknown"></i>@Strings.Import
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

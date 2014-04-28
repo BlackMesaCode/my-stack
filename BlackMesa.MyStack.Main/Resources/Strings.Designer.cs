@@ -241,6 +241,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Card delimiter ähnelt.
+        /// </summary>
+        public static string CardDelimiter {
+            get {
+                return ResourceManager.GetString("CardDelimiter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Index cards ähnelt.
         /// </summary>
         public static string Cards {
@@ -300,6 +309,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string CloseAccount {
             get {
                 return ResourceManager.GetString("CloseAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Comma ähnelt.
+        /// </summary>
+        public static string Comma {
+            get {
+                return ResourceManager.GetString("Comma", resourceCulture);
             }
         }
         
@@ -583,7 +601,16 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Export as XML File ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Export as CSV file ähnelt.
+        /// </summary>
+        public static string ExportAsCSVFile {
+            get {
+                return ResourceManager.GetString("ExportAsCSVFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Export as XML file ähnelt.
         /// </summary>
         public static string ExportAsXmlFile {
             get {
@@ -682,6 +709,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Generate ähnelt.
+        /// </summary>
+        public static string Generate {
+            get {
+                return ResourceManager.GetString("Generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Guest ähnelt.
         /// </summary>
         public static string Guest {
@@ -709,7 +745,16 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Import from XML File ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Import from CSV file ähnelt.
+        /// </summary>
+        public static string ImportFromCSV {
+            get {
+                return ResourceManager.GetString("ImportFromCSV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Import from XML file ähnelt.
         /// </summary>
         public static string ImportFromXML {
             get {
@@ -876,6 +921,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string NameAlreadyTaken {
             get {
                 return ResourceManager.GetString("NameAlreadyTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New line ähnelt.
+        /// </summary>
+        public static string NewLine {
+            get {
+                return ResourceManager.GetString("NewLine", resourceCulture);
             }
         }
         
@@ -1456,6 +1510,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Semicolon ähnelt.
+        /// </summary>
+        public static string Semicolon {
+            get {
+                return ResourceManager.GetString("Semicolon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Below which card do you want to insert your selection? ähnelt.
         /// </summary>
         public static string SetInsertAfterCard {
@@ -1510,6 +1573,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Frontside-backside delimiter ähnelt.
+        /// </summary>
+        public static string SideDelimiter {
+            get {
+                return ResourceManager.GetString("SideDelimiter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Start test ähnelt.
         /// </summary>
         public static string StartTest {
@@ -1533,6 +1605,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string StaySignedIn {
             get {
                 return ResourceManager.GetString("StaySignedIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tab ähnelt.
+        /// </summary>
+        public static string Tab {
+            get {
+                return ResourceManager.GetString("Tab", resourceCulture);
             }
         }
         
@@ -1749,6 +1830,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string WroteOn {
             get {
                 return ResourceManager.GetString("WroteOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Your xml code could not be verified ähnelt.
+        /// </summary>
+        public static string XmlParsingError {
+            get {
+                return ResourceManager.GetString("XmlParsingError", resourceCulture);
             }
         }
         

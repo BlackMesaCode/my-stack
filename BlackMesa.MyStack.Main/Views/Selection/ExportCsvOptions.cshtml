@@ -1,0 +1,60 @@
+﻿@using BlackMesa.MyStack.Main.Utilities
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Selection.ExportCsvOptionsViewModel
+
+@{
+    ViewBag.Title = Strings.ExportAsCSVFile;
+}
+
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+
+    <section id="selection-export-csv-options">
+        
+        @using (Html.BeginForm("ExportCsv", "Selection"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.FolderId)
+            
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
+            </div>
+
+            <div class="tile gray-dark">
+                <h3>@Html.LabelFor(model => Model.SideDelimiter)</h3>
+            </div>
+            
+            @Html.RadioButtonForEnum(model => model.SideDelimiter)
+            
+            <div class="tile gray-dark">
+                <h3>@Html.LabelFor(model => Model.CardDelimiter)</h3>
+            </div>
+            
+            @Html.RadioButtonForEnum(model => model.CardDelimiter)
+            
+            <div class="form-element-container">
+                <button class="gray-dark-hover" type="submit">
+                    <i class="icon-export-unknown"></i>@Strings.Generate
+                </button>
+            </div>
+        }
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
+
+</nav>

@@ -8,6 +8,7 @@ using System.Xml;
 using System.Xml.Linq;
 using BlackMesa.MyStack.Main.DataLayer;
 using BlackMesa.MyStack.Main.Models;
+using BlackMesa.MyStack.Main.Resources;
 using BlackMesa.MyStack.Main.Utilities;
 using BlackMesa.MyStack.Main.ViewModels.Selection;
 using Microsoft.AspNet.Identity;
@@ -332,16 +333,16 @@ namespace BlackMesa.MyStack.Main.Controllers
             var cards = new List<Card>();
             _myStackRepo.GetAllCardsInFolder(folder, ref cards, true);
 
-            var result = cards.Sum(c => c.TestItems.Count) == 0;
-            var correctPercentage = cards.Sum(c => c.TestItems.Count) == 0
-                ? 0d
-                : (cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct))/
-                   cards.Sum(c => c.TestItems.Count))*100;
-            var result2 = (cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct))/
-                           cards.Sum(c => c.TestItems.Count))*100;
-            var result3 = cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct));
-            var result4 = cards.Sum(c => c.TestItems.Count);
-            var result5 = ((double)result3 / (double)result4) * 100;
+            //var result = cards.Sum(c => c.TestItems.Count) == 0;
+            //var correctPercentage = cards.Sum(c => c.TestItems.Count) == 0
+            //    ? 0d
+            //    : (cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct))/
+            //       cards.Sum(c => c.TestItems.Count))*100;
+            //var result2 = (cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct))/
+            //               cards.Sum(c => c.TestItems.Count))*100;
+            //var result3 = cards.Sum(c => c.TestItems.Count(t => t.Result == TestResult.Correct));
+            //var result4 = cards.Sum(c => c.TestItems.Count);
+            //var result5 = ((double)result3 / (double)result4) * 100;
 
             var viewModel = new StatisticViewModel
             {
@@ -399,9 +400,19 @@ namespace BlackMesa.MyStack.Main.Controllers
         {
             if (ModelState.IsValid)
             {
-                var xDoc = XDocument.Parse(viewModel.SerializationResult);
+                var xDoc = new XDocument();
+                try
+                {
+                    xDoc = XDocument.Parse(viewModel.SerializationResult);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError(String.Empty, Strings.XmlParsingError);
+                    return View(viewModel);
+                }
                 var rootElement = xDoc.Root;
                 Deserialize(rootElement, viewModel.FolderId);
+
                 return RedirectToAction("Details", "Folder", new { id = viewModel.FolderId });
             }
             return View(viewModel);
@@ -436,6 +447,24 @@ namespace BlackMesa.MyStack.Main.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult ImportCsv(ImportCsvViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                ParseCSV(viewModel.SerializationResult);
+                return RedirectToAction("Details", "Folder", new { id = viewModel.FolderId });
+            }
+            return View(viewModel);
+        }
+
+
+        private void ParseCSV(string stringToParse)
+        {
+            
+        }
 
 
         public ActionResult Export(string folderId)
@@ -465,6 +494,86 @@ namespace BlackMesa.MyStack.Main.Controllers
             };
 
             return View(viewModel);
+        }
+
+
+        public ActionResult ExportCsvOptions(string folderId)
+        {
+            var viewModel = new ExportCsvOptionsViewModel
+            {
+                FolderId = folderId,
+                SideDelimiter = Delimiter.Tab,
+                CardDelimiter = Delimiter.Semicolon,
+            };
+
+            return View(viewModel);
+        }
+
+
+        private string GetDelimiterString(Delimiter delimiter)
+        {
+            var result = String.Empty;
+            switch (delimiter)
+            {
+                case Delimiter.Comma:
+                    result = ",";
+                    break;
+                case Delimiter.Tab:
+                    result = "\t";
+                    break;
+                case Delimiter.NewLine:
+                    result = "\n\n";
+                    break;
+                case Delimiter.Semicolon:
+                    result = ";";
+                    break;
+                default:
+                    result = ",";
+                    break;
+            }
+            return result;
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExportCsv(ExportCsvOptionsViewModel model)
+        {
+            var folder = _myStackRepo.GetFolder(model.FolderId);
+
+            var stringBuilder = new StringBuilder();
+
+            var cards = new List<Card>();
+            _myStackRepo.GetAllCardsInFolder(folder, ref cards, true);
+
+            var i = 0;
+            foreach (var card in cards)
+            {
+                i++;
+                stringBuilder.Append(card.FrontSide);
+                stringBuilder.Append(GetDelimiterString(model.SideDelimiter));
+                stringBuilder.Append(card.BackSide);
+                if (i != cards.Count)
+                    stringBuilder.Append(GetDelimiterString(model.CardDelimiter));
+            }
+
+            var viewModel = new ExportCsvViewModel
+            {
+                FolderId = model.FolderId,
+                SerializationResult = stringBuilder.ToString(),
+            };
+
+            return View(viewModel);
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult DownloadCsvExport(string folderId, string serializationResult)
+        {
+            var fileName = "MyStack-" + DateTime.Now.ToString("dd.MM.yyyy-HH:mm:ss") + ".csv";
+            return File(System.Text.Encoding.UTF8.GetBytes(serializationResult), "text/csv", fileName);
         }
 
 

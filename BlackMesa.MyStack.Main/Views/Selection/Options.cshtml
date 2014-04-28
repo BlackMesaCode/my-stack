@@ -72,6 +72,13 @@
             <i class="icon-export-unknown"></i>@Strings.ExportAsXmlFile
         </a>
         
+        @if (Model.HasOnlyCardsSelected)
+        {
+            <a class="tile gray-light-hover" href="@Url.Action("ExportCsvOptions", "Selection", new { folderId = Model.Id })">
+                <i class="icon-export-unknown"></i>@Strings.ExportAsCSVFile
+            </a>
+        }
+
         <a class="tile gray-light-hover" href="@Url.Action("ResetTestResults", "Selection", new { folderId = Model.Id })">
             <i class="icon-eraser"></i>@Strings.ResetTestResults
         </a>
