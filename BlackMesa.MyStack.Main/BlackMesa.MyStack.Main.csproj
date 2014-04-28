@@ -194,6 +194,8 @@
     </Compile>
     <Compile Include="ViewModels\Folder\AddOptionsViewModel.cs" />
     <Compile Include="ViewModels\Selection\BrowseViewModel.cs" />
+    <Compile Include="ViewModels\Selection\ExportCsvViewModel.cs" />
+    <Compile Include="ViewModels\Selection\ImportCsvViewModel.cs" />
     <Compile Include="ViewModels\Selection\ResetTestResultsViewModel.cs" />
     <Compile Include="ViewModels\Selection\ImportViewModel.cs" />
     <Compile Include="ViewModels\Selection\ExportViewModel.cs" />
@@ -319,6 +321,8 @@
     <Content Include="Views\Selection\_RemoveCard.cshtml" />
     <Content Include="Views\Selection\_RemoveFolder.cshtml" />
     <Content Include="Views\Selection\_AddFolder.cshtml" />
+    <Content Include="Views\Selection\ExportCsv.cshtml" />
+    <Content Include="Views\Selection\ImportCsv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
