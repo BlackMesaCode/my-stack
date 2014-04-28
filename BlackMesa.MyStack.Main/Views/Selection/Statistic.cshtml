@@ -24,7 +24,7 @@
         </div>
         
         <div class="tile gray-light">
-            @Strings.AverageLevel: @Model.AverageLevel
+            @Strings.AverageLevel: @String.Format("{0:0.##}", Model.AverageLevel)
         </div>
 
         <div class="tile gray-light">
@@ -32,7 +32,7 @@
         </div>
         
         <div class="tile gray-light">
-            @Strings.AverageRepititions: @Model.AverageRepititions
+            @Strings.AverageRepititions: @String.Format("{0:0.##}", Model.AverageRepititions)
         </div>
 
         <div class="tile gray-light">
