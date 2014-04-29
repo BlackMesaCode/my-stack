@@ -68,7 +68,9 @@ namespace BlackMesa.MyStack.Main.Models
                             if (testItems[i].Result == TestResult.Correct)
                                 level++;
                             else
-                                level--;
+                                level = 0;
+                            //else
+                            //    level--;
                         }
                     }
                 }
