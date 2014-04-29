@@ -20,5 +20,15 @@ namespace BlackMesa.MyStack.Main.Controllers
             return View(viewModel);
         }
 
+
+        public ActionResult TestTypes(string folderId)
+        {
+            var viewModel = new TestTypesViewModel
+            {
+                FolderId = folderId,
+            };
+            return View(viewModel);
+        }
+
     }
 }

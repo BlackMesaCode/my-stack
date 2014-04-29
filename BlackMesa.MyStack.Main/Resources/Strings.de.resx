@@ -732,4 +732,10 @@
   <data name="LeitnerAlgorithmus" xml:space="preserve">
     <value>Der Leitner Algorithmus</value>
   </data>
+  <data name="TestOrder" xml:space="preserve">
+    <value>Abfragereihenfolge</value>
+  </data>
+  <data name="TestTypes" xml:space="preserve">
+    <value>Abfragearten</value>
+  </data>
 </root>

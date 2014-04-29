@@ -194,6 +194,7 @@
       <DependentUpon>201404021634522_Added culture attribute to user entity.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Folder\AddOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Help\TestTypesViewModel.cs" />
     <Compile Include="ViewModels\Help\LeitnerViewModel.cs" />
     <Compile Include="ViewModels\Selection\BrowseViewModel.cs" />
     <Compile Include="ViewModels\Selection\ExportCsvOptionsViewModel.cs" />
@@ -329,6 +330,7 @@
     <Content Include="Views\Selection\ImportCsv.cshtml" />
     <Content Include="Views\Selection\ExportCsvOptions.cshtml" />
     <Content Include="Views\Help\Leitner.cshtml" />
+    <Content Include="Views\Help\TestTypes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

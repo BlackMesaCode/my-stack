@@ -129,7 +129,7 @@
                     @if (card.IsDue)
                     {
                         <a class="tile gray-light-hover has-due-cards " href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.DueCount">
-                            <i class="icon-bell without-card-count"></i>
+                            <i class="icon-bell without-margin-right"></i>
                         </a>
                     }
                     else

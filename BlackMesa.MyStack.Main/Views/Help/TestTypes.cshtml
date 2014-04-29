@@ -1,0 +1,47 @@
+﻿@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Help.TestTypesViewModel
+
+@{
+    ViewBag.Title = Strings.TestTypes;
+}
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="test-type-help">
+
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="tile gray-light">
+            <div>
+                <p>
+                    Dir stehen zwei unterschiedliche Abfragearten zur Verfügung:
+                </p>
+
+                <ul>
+                    <li><b>Normal</b> -  Im diesem Modus wirst du solange abgefragt, bis du alle Karteien richtig beantwortet hast.</li>
+                    <li><b>Einmaliger Durchlauf</b> - In diesem Modus werden dir alle ausgewählten Karteien lediglich einmal vorgelegt.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Setup", "Test", new { folderId = Model.FolderId })" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>

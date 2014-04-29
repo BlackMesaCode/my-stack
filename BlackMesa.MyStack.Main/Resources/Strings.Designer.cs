@@ -1708,6 +1708,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Test order ähnelt.
+        /// </summary>
+        public static string TestOrder {
+            get {
+                return ResourceManager.GetString("TestOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Correct ähnelt.
         /// </summary>
         public static string TestResultCorrect {
@@ -1749,6 +1758,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string TestTypeNormal {
             get {
                 return ResourceManager.GetString("TestTypeNormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Test types ähnelt.
+        /// </summary>
+        public static string TestTypes {
+            get {
+                return ResourceManager.GetString("TestTypes", resourceCulture);
             }
         }
         

@@ -33,9 +33,18 @@
                 <h3>@Strings.General</h3>
             </div>
 
-            <label class="tile gray-light-hover" for="_TestOnlyDueCards">
-                @Html.CheckBoxFor(model => model.TestOnlyDueCards, new { @id = "_TestOnlyDueCards" }) @Strings.TestOnlyDueCards
-            </label>
+            <div class="tile-splitter">
+                <label class="tile gray-light-hover" for="_TestOnlyDueCards">
+                    @Html.CheckBoxFor(model => model.TestOnlyDueCards, new { @id = "_TestOnlyDueCards" }) @Strings.TestOnlyDueCards
+                </label>
+                
+                <a class="tile gray-light-hover" href="@Url.Action("Leitner", "Help", new { folderId = Model.FolderId })" title="@Strings.NumberOfDueCards">
+                    <i class="icons-question without-margin-right"></i>
+                </a>
+            </div>
+            
+            
+            
 
             <label class="tile gray-light-hover" for="_ReverseSides">
                 @Html.CheckBoxFor(model => model.ReverseSides, new { @id = "_ReverseSides" }) @Strings.ReverseSides
@@ -49,11 +58,16 @@
 
             @Html.RadioButtonForEnum(model => model.OrderType)
 
-            <div class="tile gray-dark">
-                <h3>@Html.LabelFor(model => Model.TestType)</h3>
+            <div class="tile-splitter">
+                <div class="tile gray-dark">
+                    <h3>@Html.LabelFor(model => Model.TestType)</h3>
+                </div>
+                
+                <a class="tile gray-dark-hover" href="@Url.Action("TestTypes", "Help", new { folderId = Model.FolderId })" title="@Strings.NumberOfDueCards">
+                    <i class="icons-question without-margin-right"></i>
+                </a>
             </div>
-            
-            
+
             @Html.RadioButtonForEnum(model => model.TestType)
 
             <div class="form-element-container">

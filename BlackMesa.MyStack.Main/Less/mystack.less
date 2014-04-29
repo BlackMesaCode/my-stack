@@ -435,7 +435,8 @@ html, body {
     .flex-wrap(nowrap);
     .flex-direction(row);
 
-    a:first-child {
+    a:first-child, label:first-child, div:first-child {
+        
         .flex-grow(1);
     }
 
@@ -445,11 +446,6 @@ html, body {
         a {
             .flex-grow(1);
         }
-    }
-
-    div:first-child {
-        .flex-shrink(0);
-        .flex-grow(1);
     }
 }
 
@@ -523,13 +519,14 @@ html, body {
     }*/
 }
 
+.without-margin-right {
+    margin-right: 0 !important;
+}
+
 
 .has-due-cards {
     .flex-shrink(0);
     color: @gray-darker-hover !important;
-    i.without-card-count {
-        margin-right: 0;
-    }
     &.gray-darker {
         color: @gray !important;
     }
