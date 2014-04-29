@@ -2,37 +2,15 @@
 ToDo
 ---------------------------------------------------------------------------------
 
-Beschreibungstexte
-Willkommen auf MyStack, deinem digitalen Karteikasten. Egal wo du gerade bist, du hast jederzeit Zugriff auf deine Karteikarten. Im Bus auf dem Weg zur Uni oder Zuhause auf der Couch. MyStack lässt sich mit Smartphones und Tablets genauso einfach bedienen wie mit PCs.
 
-MyStack ist schlau und gibt dir Empfehlungen, wann du bestimmte Lerninhalte wiederholen solltest. 
-
-
-
-import xml must not be null check
-
+Unit-Tests: www.craigberntson.com/blog/?p=1096
 quick edit funktion während abfrage oder während des durchblätterns
-
-checken ob beim löschen einer karte auch seine testitems mitgelöscht werden
-
-make select & deselect clientside with js / or jus send small ajax  - and then pass list of selectedItems to selection options controller
-
-dein unkomplizierte karteikarten app -> 
-dein digitaler karteikasten für daheim und unterwegs
-
-Statistik Konzept erarbeiten
-parse backside and frontside content for urls to make them clickable
-
 recherche: .net text-to-speach audio generator
-
-
 hotkey navigation
 	Tab-Focus Styling
 	evtl reichen hotkeys für die menüpunkte
-
-
 GetLocalizedName property für enums
-Bessere CSS Strukturierung
+Less Strukturierung verbessern
 
 
 
