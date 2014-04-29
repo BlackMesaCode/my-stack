@@ -1,0 +1,86 @@
+﻿@using System.Activities.Statements
+@using BlackMesa.MyStack.Main.Resources
+
+@model BlackMesa.MyStack.Main.ViewModels.Help.LeitnerViewModel
+
+@{
+    ViewBag.Title = Strings.LeitnerAlgorithmus;
+}
+
+@* ------------------- Content ------------------- *@
+
+<div id="content">
+    
+    <section id="leitner-help">
+
+        <div class="tile gray-darker">
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="tile gray-dark">
+            <h3>Wann solltest du eine Kartei wiederholen?</h3>
+        </div>
+
+        <div class="tile gray-light">
+            <p>
+                Sobald dir das <i class="icon-bell"></i>Symbol neben einer Kartei angezeigt wird, solltest du diese wiederholen.
+                Wann genau eine Kartei fällig wird, ermitteln wir auf Grundlage des sogenannten Leitner Algorithmus.
+                Wird dir das <i class="icon-thumbs-up"></i> Symbol angezeigt, dann hast du die Kartei bereits gelernt,
+                und ein erneutes Wiederholen steht noch nicht an.<br /><br />
+                Bei Ordnern steht neben dem Symbol zusätzlich noch eine Zahl, die angibt wieviele fällige Karteien sich im Ordner befinden.
+            </p>
+        </div>
+
+        <div class="tile gray-dark">
+            <h3>Wie funktioniert dieser Algorithmus genau?</h3>
+        </div>
+
+        <div class="tile gray-light">
+            <div>
+
+                <p>
+                    Jede Kartei startet in Fach 1.
+                    Richtige beantwortete Karteien kommen in das nächste Fache.
+                    Falsche Karteien wandern zurück in Fach 1.
+                    Insgesamt gibt es 5 Fächer.
+
+                    Die Zeitspanne, nach der eine Kartei, nach einer Abfrage, erneut wiederholt werden sollte richtet sich danach, in welchem Fach sich die Kartei befindet.
+                    Hier eine Übersicht:
+                </p>
+                <br />
+                <ul>
+                    <li>Karten in Fach 1 sollten sofort wiederholt werden.</li>
+                    <li>Karten in Fach 2 sollten nach einem Tag wiederholt werden.</li>
+                    <li>Karten in Fach 3 sollten nach einer Woche wiederholt werden.</li>
+                    <li>Karten in Fach 4 sollten nach einem Monat wiederholt werden.</li>
+                    <li>Karten in Fach 5 sollten nach einem halben Jahr wiederholt werden.</li>
+                </ul>
+                <br />
+                <p>
+                    Du kannst eine Karte an einem Tag auch mehrere Male wiederholen und dabei richtig beantworten.
+                    Allerdings wird die Kartei nur maximal ein Fach weiter vorrücken. Erst wenn der entsprechende Zeitraum des neuen Faches,
+                    verstrichen ist, kann die Kartei weiter fortschreiten.
+
+                    Die ganzen Zeitspannen musst du dir jedoch nicht merken. Darum kümmern wir uns.
+                    Orientiere dich einfach an den oben beschriebenen Symbolen und deinem Lernerfolg steht nichts mehr im Wege.
+                </p>
+            </div>
+            
+        </div>
+
+
+    </section>
+
+</div>
+
+
+
+@* ------------------- Menu ------------------- *@
+
+<nav id="menu">
+
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Back">
+        <i class="icon-back"></i>
+    </a>
+
+</nav>

@@ -729,4 +729,7 @@
   <data name="CSVParsingError" xml:space="preserve">
     <value>Your CSV code could not be parsed correctly</value>
   </data>
+  <data name="LeitnerAlgorithmus" xml:space="preserve">
+    <value>The Leitner algorithm</value>
+  </data>
 </root>

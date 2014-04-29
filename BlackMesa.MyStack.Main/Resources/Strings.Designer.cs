@@ -817,6 +817,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Leitner algorithm ähnelt.
+        /// </summary>
+        public static string LeitnerAlgorithmus {
+            get {
+                return ResourceManager.GetString("LeitnerAlgorithmus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Linked third party accounts ähnelt.
         /// </summary>
         public static string LinkedThirdPartyAccounts {

@@ -31,15 +31,15 @@
 
             @if (Model.DueCards > 0)
             {
-                <div class="tile gray-darker has-due-cards" title="@Strings.NumberOfDueCards">
+                <a class="tile gray-darker has-due-cards" href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.NumberOfDueCards">
                     <i class="icon-bell"></i>@Model.DueCards
-                </div>
+                </a>
             }
             else
             {
-                <div class="tile gray-darker no-due-cards" title="@Strings.NoDueCards">
+                <a class="tile gray-darker no-due-cards" href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.NoDueCards">
                     <i class="icon-thumbs-up"></i>
-                </div>
+                </a>
             }
 
 
@@ -66,19 +66,20 @@
                         <i class="icon-folder"> </i>@subFolder.Name
                     </a>
                     @{
-                var dueCardsInFolder = Model.DueCardsPerSubfolder[subFolder.Id.ToString()];
+                    var dueCardsInFolder = Model.DueCardsPerSubfolder[subFolder.Id.ToString()];
                     }
                     @if (dueCardsInFolder > 0)
                     {
-                        <div class="tile gray-light has-due-cards" title="@Strings.NumberOfDueCards">
+                        <a class="tile gray-light-hover has-due-cards" href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.NumberOfDueCards">
                             <i class="icon-bell"></i>@dueCardsInFolder
-                        </div>
+                        </a>
                     }
+
                     else
                     {
-                        <div class="tile gray-light no-due-cards" title="@Strings.NoDueCards">
+                        <a class="tile gray-light-hover no-due-cards" href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.NoDueCards">
                             <i class="icon-thumbs-up"></i>
-                        </div>
+                        </a>
                     }
 
 
@@ -124,6 +125,21 @@
                     <a class="tile gray-light-hover" href="@Url.Action("Edit", "Card", new { id = card.Id })">
                         <i class="icon-card"> </i>@card.FrontSide
                     </a>
+                    
+                    @if (card.IsDue)
+                    {
+                        <a class="tile gray-light-hover has-due-cards " href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.DueCount">
+                            <i class="icon-bell without-card-count"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="tile gray-light-hover no-due-cards" href="@Url.Action("Leitner", "Help", new { folderId = Model.Id })" title="@Strings.NoDueCards">
+                            <i class=" icon-thumbs-up">
+                            </i>
+                        </a>
+                    }
+                    
 
                     @if (card.IsSelected)
                     {
@@ -182,8 +198,8 @@
     </a>
 
     <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.Id })" title="@Strings.Options">
-        <i class="icon-wrench"></i>
-        @*<i class="icon-checked-square"></i>*@
+        @*<i class="icon-wrench"></i>*@
+        <i class="icon-checked-square"></i>
     </a>
 
     <a class="red-hover" href="@Url.Action("RemoveFolder", "Selection", new { folderId = Model.Id, returnFolderId = Model.Id })" title="@Strings.ClearSelection">
