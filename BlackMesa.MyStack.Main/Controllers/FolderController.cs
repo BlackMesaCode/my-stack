@@ -24,9 +24,19 @@ namespace BlackMesa.MyStack.Main.Controllers
             {
                 _myStackRepo.CreateRootFolder(Strings.Root, User.Identity.GetUserId());
                 rootFolder = _myStackRepo.GetRootFolder(User.Identity.GetUserId());
+                CreateTutorialFolder(rootFolder.Id.ToString());
             }
 
             return RedirectToAction("Details", "Folder", new {id = rootFolder.Id.ToString()});
+        }
+
+
+        private void CreateTutorialFolder(string parentFolderId)
+        {
+            var tutorialFolderId = _myStackRepo.AddFolder("Tutorial", User.Identity.GetUserId(), parentFolderId);
+
+            _myStackRepo.AddCard(tutorialFolderId, User.Identity.GetUserId(), "FS Content", "BS Content", DateTime.Now,
+                null);
         }
 
 
