@@ -64,6 +64,9 @@ namespace BlackMesa.MyStack.Main.Controllers
             _myStackRepo.GetCardCount(folder, ref dueCards, false, false, true);
             dueCards += dueCardsPerFolder.Values.Sum();
 
+            var numberOfSelectedCardsIncludingSubfolders = 0;
+            _myStackRepo.GetCardCount(folder, ref numberOfSelectedCardsIncludingSubfolders, true, true, false);
+
             var viewModel = new DetailsViewModel
             {
                 Id = folder.Id.ToString(),
@@ -78,6 +81,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 ParentFolderId = (!folder.IsRootFolder ? folder.ParentFolder.Id.ToString() : String.Empty),
                 DueCards = dueCards,
                 DueCardsPerSubfolder = dueCardsPerFolder,
+                NumberOfSelectedCardsIncludingSubfolders = numberOfSelectedCardsIncludingSubfolders,
             };
             return View(viewModel);
         }

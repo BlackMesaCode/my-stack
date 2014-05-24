@@ -300,6 +300,8 @@ namespace BlackMesa.MyStack.Main.Controllers
             }
         }
 
+
+
         public ActionResult Options(string id)
         {
             var folder = _myStackRepo.GetFolder(id);
@@ -309,6 +311,9 @@ namespace BlackMesa.MyStack.Main.Controllers
 
             var hasOnlyFoldersSelected = !folder.Cards.Any(c => c.IsSelected);
             var hasOneFolderSelected = ((folder.SubFolders.Count(c => c.IsSelected) + (folder.IsSelected ? 1 : 0)) == 1);
+
+            var numberOfSelectedCardsIncludingSubfolders = 0;
+            _myStackRepo.GetCardCount(folder, ref numberOfSelectedCardsIncludingSubfolders, true, true, false);
 
             var viewModel = new OptionsViewModel
             {
@@ -321,6 +326,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 CardId = (folder.Cards.Count(c => c.IsSelected) == 1) ? folder.Cards.Find(c => c.IsSelected).Id.ToString() : String.Empty,
                 HasOnlyFoldersSelected = hasOnlyFoldersSelected,
                 HasOnlyOneFolderSelected = hasOneFolderSelected && hasOnlyFoldersSelected,
+                NumberOfSelectedCardsIncludingSubfolders = numberOfSelectedCardsIncludingSubfolders,
                 FolderId = ((folder.SubFolders.Count(c => c.IsSelected) + (folder.IsSelected ? 1 : 0)) == 1) ? (folder.IsSelected ? folder.Id.ToString() : folder.SubFolders.Find(f => f.IsSelected).Id.ToString()) : String.Empty,
             };
 

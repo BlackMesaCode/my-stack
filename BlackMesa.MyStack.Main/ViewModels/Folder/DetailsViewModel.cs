@@ -16,5 +16,6 @@ namespace BlackMesa.MyStack.Main.ViewModels.Folder
         public IEnumerable<Models.Card> Cards { get; set; }
         public int DueCards { get; set; }
         public Dictionary<string, int> DueCardsPerSubfolder{ get; set; }
+        public int NumberOfSelectedCardsIncludingSubfolders { get; set; }
     }
 }

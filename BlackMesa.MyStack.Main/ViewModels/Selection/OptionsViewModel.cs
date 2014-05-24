@@ -11,6 +11,7 @@
         public string CardId { get; set; }
         public bool HasOnlyFoldersSelected { get; set; }
         public bool HasOnlyOneFolderSelected { get; set; }
+        public int NumberOfSelectedCardsIncludingSubfolders { get; set; }
         public string FolderId { get; set; }
         
     }
