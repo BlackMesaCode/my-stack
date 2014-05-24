@@ -11,7 +11,7 @@ namespace BlackMesa.MyStack.Main
         public static readonly string CultureConstraints = @"\w{2,3}(-\w{4})?(-\w{2,3})?";
         public static readonly string LanguageConstraints = @"\w{2}";
         public static readonly object IdConstraints = @"\d+";
-        public static readonly List<string> AllowedCultures = new List<string> { "en-US", "de-DE", "de-CH", "de-AT", "de-LI", "de-LU" };
+        public static readonly List<string> AllowedCultures = new List<string> { "en-US", "de-DE" };
         public static readonly List<string> AllowedLanguages = new List<string> { "en", "de" };
         public static readonly TimeZoneInfo ApplicationTimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("W. Europe Standard Time");
     }
@@ -21,10 +21,8 @@ namespace BlackMesa.MyStack.Main
 
         protected void Application_Start()
         {
-
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
         }
     }
 
