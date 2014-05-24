@@ -738,8 +738,8 @@
   <data name="TestTypes" xml:space="preserve">
     <value>Abfragearten</value>
   </data>
-  <data name="Error" xml:space="preserve">
-    <value>Fehler</value>
+  <data name="ChangeCultureSuccess" xml:space="preserve">
+    <value>Die Sprache wurde erfolgreich geändert</value>
   </data>
   <data name="ExternalLoginRemoved" xml:space="preserve">
     <value>Der externe Login wurde entfernt</value>

@@ -268,6 +268,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The language has been changed successfully ähnelt.
+        /// </summary>
+        public static string ChangeCultureSuccess {
+            get {
+                return ResourceManager.GetString("ChangeCultureSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Change language ähnelt.
         /// </summary>
         public static string ChangeLanguage {

@@ -738,6 +738,9 @@
   <data name="TestTypes" xml:space="preserve">
     <value>Test types</value>
   </data>
+  <data name="ChangeCultureSuccess" xml:space="preserve">
+    <value>The language has been changed successfully</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>

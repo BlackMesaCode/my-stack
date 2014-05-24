@@ -13,9 +13,16 @@
             <h1>@ViewBag.Title</h1>
         </div>
         
-        <div class="form-element-container">
+        @*<div class="form-element-container">
             @ViewBag.StatusMessage
-        </div>
+        </div>*@
+        
+        @if (!String.IsNullOrEmpty(ViewBag.StatusMessage))
+        {
+            <div class="tile gray-light status-message">
+                @ViewBag.StatusMessage
+            </div>
+        }
 
         <a class="tile gray-light-hover" href="@Url.Action("ChangePassword", "Account")">
             <i class="icons-key"></i>@Strings.ChangePassword

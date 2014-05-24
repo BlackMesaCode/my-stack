@@ -127,6 +127,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 message == ManageMessageId.ChangePasswordSuccess ? Strings.PasswordHasBeenChanged
                 : message == ManageMessageId.SetPasswordSuccess ? Strings.PasswordHasBeenSaved
                 : message == ManageMessageId.RemoveLoginSuccess ? Strings.ExternalLoginRemoved
+                : message == ManageMessageId.ChangeCultureSuccess ? Strings.ChangeCultureSuccess
                 : message == ManageMessageId.Error ? Strings.Error
                 : "";
             return View();
@@ -337,9 +338,9 @@ namespace BlackMesa.MyStack.Main.Controllers
             if (ModelState.IsValid)
             {
                 _myStackRepo.ChangeCulture(User.Identity.GetUserId(), viewModel.SelectedCulture);
-                RouteData.Values["culture"] = String.Empty;
+                RouteData.Values["culture"] = viewModel.SelectedCulture;
                 RouteData.Values["language"] = String.Empty;
-                return RedirectToAction("Index", "Home");
+                return RedirectToLocal(Url.Action("Manage", "Account", new { Message = ManageMessageId.ChangeCultureSuccess }));
             }
             return View(viewModel);
         }
@@ -418,6 +419,7 @@ namespace BlackMesa.MyStack.Main.Controllers
             ChangePasswordSuccess,
             SetPasswordSuccess,
             RemoveLoginSuccess,
+            ChangeCultureSuccess,
             Error
         }
 
