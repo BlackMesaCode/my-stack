@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using BlackMesa.MyStack.Main.DataLayer;
 using BlackMesa.MyStack.Main.Models;
+using BlackMesa.MyStack.Main.Resources;
 using BlackMesa.MyStack.Main.ViewModels.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -57,7 +58,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", Strings.InvalidUsernameOrPassword);
                 }
             }
 
@@ -123,10 +124,10 @@ namespace BlackMesa.MyStack.Main.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Ihr Kennwort wurde geändert."
-                : message == ManageMessageId.SetPasswordSuccess ? "Ihr Kennwort wurde festgelegt."
-                : message == ManageMessageId.RemoveLoginSuccess ? "Die externe Anmeldung wurde entfernt."
-                : message == ManageMessageId.Error ? "Fehler"
+                message == ManageMessageId.ChangePasswordSuccess ? Strings.PasswordHasBeenChanged
+                : message == ManageMessageId.SetPasswordSuccess ? Strings.PasswordHasBeenSaved
+                : message == ManageMessageId.RemoveLoginSuccess ? Strings.ExternalLoginRemoved
+                : message == ManageMessageId.Error ? Strings.Error
                 : "";
             return View();
         }

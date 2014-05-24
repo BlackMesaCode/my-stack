@@ -205,7 +205,7 @@
     <value>Keine Einträge vorhanden</value>
   </data>
   <data name="NoLocalAccount" xml:space="preserve">
-    <value>Falls Sie noch kein lokales Konto besitzen</value>
+    <value>Falls du noch kein lokales Konto besitzt</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Passwort</value>
@@ -355,7 +355,7 @@
     <value>Dieser Name ist bereits vergeben.</value>
   </data>
   <data name="PleaseConfirm" xml:space="preserve">
-    <value>Bitte bestätigen Sie:</value>
+    <value>Bitte bestätige:</value>
   </data>
   <data name="YourComment" xml:space="preserve">
     <value>Ihr Kommentar</value>
@@ -664,7 +664,7 @@
     <value>Account schließen</value>
   </data>
   <data name="ConfirmCloseAccount" xml:space="preserve">
-    <value>Wollen Sie ihren Account wirklich schließen und alle damit verbundenen Daten endgültig löschen?</value>
+    <value>Möchtest du deinen Account wirklich schließen und alle damit verbundenen Daten endgültig löschen?</value>
   </data>
   <data name="SelectPreferredLanguage" xml:space="preserve">
     <value>Wähle deine bevorzugte Sprache aus</value>
@@ -737,5 +737,20 @@
   </data>
   <data name="TestTypes" xml:space="preserve">
     <value>Abfragearten</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ExternalLoginRemoved" xml:space="preserve">
+    <value>Der externe Login wurde entfernt</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Dein Benutzername oder Password ist falsch</value>
+  </data>
+  <data name="PasswordHasBeenChanged" xml:space="preserve">
+    <value>Dein Passwort wurde geändert</value>
+  </data>
+  <data name="PasswordHasBeenSaved" xml:space="preserve">
+    <value>Dein Passwort wurde gespeichert</value>
   </data>
 </root>

@@ -738,4 +738,19 @@
   <data name="TestTypes" xml:space="preserve">
     <value>Test types</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExternalLoginRemoved" xml:space="preserve">
+    <value>The external login has been removed</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Invalid username of password</value>
+  </data>
+  <data name="PasswordHasBeenChanged" xml:space="preserve">
+    <value>Your password has been changed</value>
+  </data>
+  <data name="PasswordHasBeenSaved" xml:space="preserve">
+    <value>Your password has been saved</value>
+  </data>
 </root>
