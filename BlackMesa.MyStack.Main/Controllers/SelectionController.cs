@@ -691,11 +691,14 @@ namespace BlackMesa.MyStack.Main.Controllers
 
             var browseList = Session["BrowseList"] as BrowseList;
 
+            var frontSide = browseList.Cards.ElementAt(position).FrontSide;
+            var backSide = browseList.Cards.ElementAt(position).BackSide;
+
             var viewModel = new BrowseViewModel
             {
                 FolderId = folderId,
-                FrontSide = browseList.Cards.ElementAt(position).FrontSide,
-                BackSide = browseList.Cards.ElementAt(position).BackSide.AddLinkTags(),
+                FrontSide = frontSide,
+                BackSide = backSide != null ? backSide.AddLinkTags() : null,
                 CardsCount = browseList.CardsCount,
                 Position = position,
             };
