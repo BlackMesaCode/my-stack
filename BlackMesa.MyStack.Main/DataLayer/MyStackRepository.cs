@@ -226,7 +226,7 @@ namespace BlackMesa.MyStack.Main.DataLayer
             {
                 foreach (var subFolder in folder.SubFolders.Where(f => (countOnlySelected && f.IsSelected) || !countOnlySelected))
                 {
-                    GetCardCount(subFolder, ref cardCount);
+                    GetCardCount(subFolder, ref cardCount, true, false, countOnlyDue);
                 }
             }
         }
