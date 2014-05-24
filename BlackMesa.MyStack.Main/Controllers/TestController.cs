@@ -132,13 +132,16 @@ namespace BlackMesa.MyStack.Main.Controllers
             }
             if (card != null)
             {
+                var frontSide = (test.ReverseSides ? card.BackSide : card.FrontSide);
+                var backSide = (test.ReverseSides ? card.FrontSide : card.BackSide);
+
                 return new TestItemViewModel
                 {
                     FolderId = folderId,
                     TestId = testId,
                     CardId = card.Id.ToString(),
-                    FrontSide = (test.ReverseSides ? card.BackSide : card.FrontSide),
-                    BackSide = (test.ReverseSides ? card.FrontSide : card.BackSide).AddLinkTags(),
+                    FrontSide = frontSide,
+                    BackSide = backSide != null ? backSide.AddLinkTags() : null,
                     StartTime = DateTime.Now,
                     Result = TestResult.Correct,
                     CardsLeft = cardsLeft,
