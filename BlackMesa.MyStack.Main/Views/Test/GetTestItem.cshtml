@@ -46,9 +46,11 @@
                         <pre>@Model.FrontSide</pre>
                     </div>
 
-                    @*<div class="tile gray-dark-hover">
-                        <i class="icon-flip"></i><h3>@Strings.FlipCard</h3>
-                    </div>*@
+                    <div class="form-element-container flip-card-button">
+                        <div class="gray-dark-hover button-like">
+                            <i class="icon-flip"></i>@Strings.FlipCard
+                        </div>
+                    </div>
                 </a>
 
             </div>
@@ -70,8 +72,15 @@
                     <div class="tile gray-light">
                         <pre>@Html.Raw(Model.BackSide)</pre>
                     </div>
+
+                    <div class="form-element-container flip-card-button">
+                        <div class="gray-dark-hover button-like">
+                            <i class="icon-flip"></i>@Strings.FlipCard
+                        </div>
+                    </div>
                 </a>
             </div>
+            
             
             <div id="result-buttons">
 
