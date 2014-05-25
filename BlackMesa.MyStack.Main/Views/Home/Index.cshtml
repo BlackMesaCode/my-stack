@@ -16,7 +16,7 @@
 
         <div class="tile gray-light center">
             <p>
-                @Strings.MyStackIntro
+                @Strings.Hello, <i><b>@(User.Identity.IsAuthenticated ? User.Identity.Name : Strings.Guest)</b>.</i>@Strings.MyStackIntro
             </p>
             
         </div>

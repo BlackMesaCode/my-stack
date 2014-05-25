@@ -759,4 +759,7 @@
   <data name="PasswordHasBeenSaved" xml:space="preserve">
     <value>Dein Passwort wurde gespeichert</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
 </root>

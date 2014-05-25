@@ -762,4 +762,7 @@
   <data name="PasswordHasBeenSaved" xml:space="preserve">
     <value>Your password has been saved</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
 </root>
