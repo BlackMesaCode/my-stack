@@ -14,15 +14,23 @@ namespace BlackMesa.MyStack.Main.Controllers
     {
         private readonly MyStackRepository _myStackRepo = new MyStackRepository(new MyStackDbContext());
 
-        public ActionResult Setup(string folderId)
+        public ActionResult Setup(string folderId, bool selectAll = false)
         {
             var folder = _myStackRepo.GetFolder(folderId);
+
+            if (selectAll)
+                _myStackRepo.SelectFolder(folder);
+
+            var numberOfSelectedCards = 0;
+             _myStackRepo.GetCardCount(folder, ref numberOfSelectedCards, true, true, false);
+
 
             var viewModel = new SetupTestViewModel
             {
                 FolderId = folder.Id.ToString(),
                 TestOnlyDueCards = true,
                 ReverseSides = false,
+                NumberOfSelectedCards = numberOfSelectedCards,
                 OrderType = OrderType.Ordered,
                 TestType = TestType.Normal,
             };

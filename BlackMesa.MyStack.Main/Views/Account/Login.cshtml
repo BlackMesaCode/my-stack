@@ -26,11 +26,14 @@
                 @Html.AntiForgeryToken()
 
                 @*<h3>@Strings.UseLocalAccount</h3>*@
-                
-                <div class="tile gray-light">
-                    @Html.ValidationSummary(false)
-                </div>
 
+                if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="tile gray-light">
+                        @Html.ValidationSummary(false)
+                    </div>
+                }
+                
                 <div class="form-element-container">
                     @Html.LabelFor(m => m.UserName)
                     @Html.TextBoxFor(m => m.UserName, new { @autocomplete = "off", @autofocus = "" })

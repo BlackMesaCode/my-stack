@@ -738,6 +738,9 @@
   <data name="TestTypes" xml:space="preserve">
     <value>Test types</value>
   </data>
+  <data name="AddCardsFirst" xml:space="preserve">
+    <value>Before you can continue, you need to create cards first.</value>
+  </data>
   <data name="ChangeCultureSuccess" xml:space="preserve">
     <value>The language has been changed successfully</value>
   </data>
@@ -749,6 +752,9 @@
   </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Invalid username of password</value>
+  </data>
+  <data name="NoCardsFound" xml:space="preserve">
+    <value>No cards found.</value>
   </data>
   <data name="PasswordHasBeenChanged" xml:space="preserve">
     <value>Your password has been changed</value>

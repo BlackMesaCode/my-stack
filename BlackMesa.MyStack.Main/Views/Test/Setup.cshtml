@@ -11,73 +11,96 @@
 
     <section id="test-setup">
 
-        @using (Html.BeginForm())
+        @if (Model.NumberOfSelectedCards > 0)
         {
-            @Html.AntiForgeryToken()
-            
-            <div class="tile gray-darker">
-                <h1>@ViewBag.Title</h1>
-            </div>
-            
-            if (!ViewData.ModelState.IsValid)
+
+            using (Html.BeginForm())
             {
-                <div class="tile gray-light">
-                    @Html.ValidationSummary()
+                @Html.AntiForgeryToken()
+
+                <div class="tile gray-darker">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+
+                if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="tile gray-light">
+                        @Html.ValidationSummary()
+                    </div>
+                }
+
+
+                @Html.HiddenFor(model => model.FolderId)
+
+                <div class="tile gray-dark">
+                    <h3>@Strings.General</h3>
+                </div>
+
+                <div class="tile-splitter">
+                    <label class="tile gray-light-hover" for="_TestOnlyDueCards">
+                        @Html.CheckBoxFor(model => model.TestOnlyDueCards, new { @id = "_TestOnlyDueCards" }) @Strings.TestOnlyDueCards
+                    </label>
+
+                    <a class="tile gray-light-hover" href="@Url.Action("Leitner", "Help", new { folderId = Model.FolderId })" title="@Strings.NumberOfDueCards">
+                        <i class="icons-question without-margin-right"></i>
+                    </a>
+                </div>
+
+
+
+
+                <label class="tile gray-light-hover" for="_ReverseSides">
+                    @Html.CheckBoxFor(model => model.ReverseSides, new { @id = "_ReverseSides" }) @Strings.ReverseSides
+                </label>
+
+
+                <div class="tile gray-dark">
+                    <h3>@Html.LabelFor(model => Model.OrderType)</h3>
+                </div>
+
+
+                @Html.RadioButtonForEnum(model => model.OrderType)
+
+                <div class="tile-splitter">
+                    <div class="tile gray-dark">
+                        <h3>@Html.LabelFor(model => Model.TestType)</h3>
+                    </div>
+
+                    <a class="tile gray-dark-hover" href="@Url.Action("TestTypes", "Help", new { folderId = Model.FolderId })" title="@Strings.NumberOfDueCards">
+                        <i class="icons-question without-margin-right"></i>
+                    </a>
+                </div>
+
+                @Html.RadioButtonForEnum(model => model.TestType)
+
+                <div class="form-element-container">
+                    <button class="gray-dark-hover" type="submit">
+                        @Strings.StartTest
+                    </button>
                 </div>
             }
 
-            
-            @Html.HiddenFor(model => model.FolderId)
-
-            <div class="tile gray-dark">
-                <h3>@Strings.General</h3>
+        }
+        else
+        {
+            <div class="tile gray-darker">
+                <h1>@ViewBag.Title</h1>
             </div>
 
-            <div class="tile-splitter">
-                <label class="tile gray-light-hover" for="_TestOnlyDueCards">
-                    @Html.CheckBoxFor(model => model.TestOnlyDueCards, new { @id = "_TestOnlyDueCards" }) @Strings.TestOnlyDueCards
-                </label>
-                
-                <a class="tile gray-light-hover" href="@Url.Action("Leitner", "Help", new { folderId = Model.FolderId })" title="@Strings.NumberOfDueCards">
-                    <i class="icons-question without-margin-right"></i>
-                </a>
+            <div class="tile gray-light">
+                @Strings.NoCardsFound @Strings.AddCardsFirst
             </div>
-            
-            
-            
-
-            <label class="tile gray-light-hover" for="_ReverseSides">
-                @Html.CheckBoxFor(model => model.ReverseSides, new { @id = "_ReverseSides" }) @Strings.ReverseSides
-            </label>
-
-
-            <div class="tile gray-dark">
-                <h3>@Html.LabelFor(model => Model.OrderType)</h3>
-            </div>
-            
-
-            @Html.RadioButtonForEnum(model => model.OrderType)
-
-            <div class="tile-splitter">
-                <div class="tile gray-dark">
-                    <h3>@Html.LabelFor(model => Model.TestType)</h3>
-                </div>
-                
-                <a class="tile gray-dark-hover" href="@Url.Action("TestTypes", "Help", new { folderId = Model.FolderId })" title="@Strings.NumberOfDueCards">
-                    <i class="icons-question without-margin-right"></i>
-                </a>
-            </div>
-
-            @Html.RadioButtonForEnum(model => model.TestType)
 
             <div class="form-element-container">
-                <button class="gray-dark-hover" type="submit">
-                    @Strings.StartTest
-                </button>
+                <a class="button-like gray-dark-hover" href="@Url.Action("AddOptions", "Folder", new { folderId = Model.FolderId })">
+                    <i class="icon-plus"></i>@Strings.Insert
+                </a>
             </div>
+            
         }
-
     </section>
+
+
 
 </div>
 

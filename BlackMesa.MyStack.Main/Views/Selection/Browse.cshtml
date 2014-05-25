@@ -15,14 +15,28 @@
             <h1>@ViewBag.Title</h1>
         </div>
         
-        <div class="tile gray-light">
-            <strong><pre>@Model.FrontSide</pre></strong>
-        </div>
+        @if (Model.CardsCount > 0)
+        {
+            <div class="tile gray-light">
+                <strong><pre>@Model.FrontSide</pre></strong>
+            </div>
 
-        
-        <div class="tile gray-light">
-            <pre>@Html.Raw(Model.BackSide)</pre>
-        </div>
+            <div class="tile gray-light">
+                <pre>@Html.Raw(Model.BackSide)</pre>
+            </div>
+        }
+        else
+        {
+            <div class="tile gray-light">
+                @Strings.NoCardsFound @Strings.AddCardsFirst
+            </div>
+
+            <div class="form-element-container">
+                <a class="button-like gray-dark-hover" href="@Url.Action("AddOptions", "Folder", new { folderId = Model.FolderId })">
+                    <i class="icon-plus"></i>@Strings.Insert
+                </a>
+            </div>
+        }
 
     </section>
 

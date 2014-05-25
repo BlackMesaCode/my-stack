@@ -738,6 +738,9 @@
   <data name="TestTypes" xml:space="preserve">
     <value>Abfragearten</value>
   </data>
+  <data name="AddCardsFirst" xml:space="preserve">
+    <value>Bevor du weiter machen kannst, musst du zuerst Karteien erstellen.</value>
+  </data>
   <data name="ChangeCultureSuccess" xml:space="preserve">
     <value>Die Sprache wurde erfolgreich geändert</value>
   </data>
@@ -746,6 +749,9 @@
   </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Dein Benutzername oder Password ist falsch</value>
+  </data>
+  <data name="NoCardsFound" xml:space="preserve">
+    <value>Es wurden keine Karteikarten gefunden.</value>
   </data>
   <data name="PasswordHasBeenChanged" xml:space="preserve">
     <value>Dein Passwort wurde geändert</value>

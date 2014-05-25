@@ -188,17 +188,6 @@
 @* ------------------- Menu ------------------- *@
 
 <nav id="has-any-selection-menu" style="display:none">
-    
-    @*@if (Model.NumberOfSelectedCardsIncludingSubfolders > 0)
-    {
-        <a class="red-hover" href="@Url.Action("Setup", "Test", new { folderId = Model.Id })" title="@Strings.StartTest">
-            <i class="icon-rocket"></i>
-        </a>
-
-        <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.Id, position = 0, doInit = true })" title="@Strings.Browse">
-            <i class="icon-browse"></i>
-        </a>
-    }*@
 
     <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.Id })" title="@Strings.Options">
         @*<i class="icon-wrench"></i>*@
@@ -226,7 +215,14 @@
             <i class="icon-left-up"></i>
         </a>
     }
+    
+    <a class="red-hover" href="@Url.Action("Setup", "Test", new { folderId = Model.Id, selectAll = true })" title="@Strings.StartTest">
+        <i class="icon-rocket"></i>
+    </a>
 
+    <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.Id, position = 0, doInit = true, selectAll = true })" title="@Strings.Browse">
+        <i class="icon-browse"></i>
+    </a>
 
     <a class="red-hover" href="@Url.Action("AddOptions", "Folder", new { folderId = Model.Id })" title="@Strings.Insert">
         <i class="icon-plus"></i>

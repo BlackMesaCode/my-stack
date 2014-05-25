@@ -97,6 +97,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Before you can continue, you need to create cards first. ähnelt.
+        /// </summary>
+        public static string AddCardsFirst {
+            get {
+                return ResourceManager.GetString("AddCardsFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die AddEntry ähnelt.
         /// </summary>
         public static string AddEntry {
@@ -1002,6 +1011,15 @@ namespace BlackMesa.MyStack.Main.Resources {
         public static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No cards found. ähnelt.
+        /// </summary>
+        public static string NoCardsFound {
+            get {
+                return ResourceManager.GetString("NoCardsFound", resourceCulture);
             }
         }
         

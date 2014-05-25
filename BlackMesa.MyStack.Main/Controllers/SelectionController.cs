@@ -676,13 +676,17 @@ namespace BlackMesa.MyStack.Main.Controllers
 
 
 
-        public ActionResult Browse(string folderId, int position, bool doInit = false)
+        public ActionResult Browse(string folderId, int position, bool doInit = false, bool selectAll = false)
         {
 
             if (doInit)
             {
                 var cards = new List<Card>();
                 var folder = _myStackRepo.GetFolder(folderId);
+
+                if(selectAll)
+                    _myStackRepo.SelectFolder(folder);
+
                 _myStackRepo.GetAllCardsInFolder(folder, ref cards, true);
 
                 var newBrowseList = new BrowseList
@@ -697,8 +701,17 @@ namespace BlackMesa.MyStack.Main.Controllers
 
             var browseList = Session["BrowseList"] as BrowseList;
 
-            var frontSide = browseList.Cards.ElementAt(position).FrontSide;
-            var backSide = browseList.Cards.ElementAt(position).BackSide;
+            string frontSide = null;
+            string backSide = null;
+
+            if (browseList.CardsCount > 0)
+            {
+                var elementAtCurrentPosition = browseList.Cards.ElementAt(position);
+
+                frontSide = elementAtCurrentPosition != null ? elementAtCurrentPosition.FrontSide : null;
+                backSide = elementAtCurrentPosition != null ? elementAtCurrentPosition.BackSide : null;
+
+            }
 
             var viewModel = new BrowseViewModel
             {
