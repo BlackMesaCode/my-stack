@@ -3,6 +3,17 @@
 @model List<BlackMesa.MyStack.Main.Models.Folder>
 
 <div id="folder-path">
+
+    @if (Model.Count > 0)
+    {
+        <a href="@Url.Action("Index", "Home")">
+            <div class="tile gray-dark-hover">
+                <i class="icon-home"></i>
+            </div>
+        </a>
+    }
+
+
     @for (int i = 0; i < Model.Count; i++)
     {
         string id = String.Empty;
