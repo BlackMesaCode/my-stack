@@ -80,11 +80,12 @@
             <a class="tile gray-light-hover" href="@Url.Action("ResetTestResults", "Selection", new {folderId = Model.Id})">
                 <i class="icon-eraser"></i>@Strings.ResetTestResults
             </a>
-
-            <a class="tile gray-light-hover" href="@Url.Action("Delete", "Selection", new {folderId = Model.Id})">
-                <i class="icon-delete"></i>@Strings.Delete
-            </a>
         }
+            
+        <a class="tile gray-light-hover" href="@Url.Action("Delete", "Selection", new {folderId = Model.Id})">
+            <i class="icon-delete"></i>@Strings.Delete
+        </a>
+        
 
     </section>
 
