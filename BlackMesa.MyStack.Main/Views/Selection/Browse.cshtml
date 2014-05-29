@@ -48,24 +48,23 @@
 
 <nav id="menu">
     
-    @if (Model.Position > 0)
-    {
-        <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.FolderId, position = Model.Position - 1 })" title="@Strings.Back">
-            <i class="icon-left"></i>
-        </a>
-    }
-
-    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Abort">
-        <i class="icon-abort"></i>
-    </a>
-
-    @if (Model.Position < Model.CardsCount-1)
+    @if (Model.Position < Model.CardsCount - 1)
     {
         <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.FolderId, position = Model.Position + 1 })" title="@Strings.Next">
             <i class="icon-right"></i>
         </a>
     }
 
+    @if (Model.Position > 0)
+    {
+        <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.FolderId, position = Model.Position - 1 })" title="@Strings.Back">
+            <i class="icon-left"></i>
+        </a>
+    }
+    
+    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Abort">
+        <i class="icon-abort"></i>
+    </a>
 
 </nav>
 
