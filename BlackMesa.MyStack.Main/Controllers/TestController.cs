@@ -192,15 +192,16 @@ namespace BlackMesa.MyStack.Main.Controllers
         public ActionResult Completed(string testId, string folderId)
         {
             var test = Session["Test"] as Test;
+            var dbCardsToTest = test.CardsToTest.Select(cardToTest => _myStackRepo.GetCard(cardToTest.Id.ToString()));
 
             var viewModel = new TestCompletedViewModel
             {
                 FolderId = folderId,
                 Duration = DateTime.Now - test.StartTime,
                 TotalCount = test.CardsToTest.Count,
-                CorrectCount = test.CardsToTest.Count(c => c.TestItems.Any(i => i.TestId == testId && i.Result == TestResult.Correct)),
-                PartlyCorrectCount = test.CardsToTest.Count(c => c.TestItems.Any(i => i.TestId == testId && i.Result == TestResult.PartlyCorrect)),
-                WrongCount = test.CardsToTest.Count(c => c.TestItems.Any(i => i.TestId == testId && i.Result == TestResult.Wrong)),
+                CorrectCount = dbCardsToTest.Count(c => c.TestItems.Any(i => i.TestId == testId && i.Result == TestResult.Correct)),
+                PartlyCorrectCount = dbCardsToTest.Count(c => c.TestItems.Any(i => i.TestId == testId && i.Result == TestResult.PartlyCorrect)),
+                WrongCount = dbCardsToTest.Count(c => c.TestItems.Any(i => i.TestId == testId && i.Result == TestResult.Wrong)),
             };
 
             Session["Test"] = null;
