@@ -57,7 +57,7 @@ namespace BlackMesa.MyStack.Main.Models
                     if (testItems.Single().Result == TestResult.Correct)
                         level++;
                     else
-                        level--;
+                        level = 0;
                 }
                 else if (testItems.Count > 1)
                 {
@@ -69,7 +69,7 @@ namespace BlackMesa.MyStack.Main.Models
                                 level++;
                             else
                                 level = 0;
-                            //else
+                            //else     // Different to Leitner algorithm
                             //    level--;
                         }
                     }
