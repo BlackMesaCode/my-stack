@@ -14,7 +14,7 @@ namespace BlackMesa.MyStack.Main.Controllers
     {
         private readonly MyStackRepository _myStackRepo = new MyStackRepository(new MyStackDbContext());
 
-        public ActionResult Setup(string folderId, bool selectAll = false)
+        public ActionResult Setup(string folderId, bool selectAll = false, bool returnToDetailsView = false)
         {
             var folder = _myStackRepo.GetFolder(folderId);
 
@@ -33,6 +33,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 NumberOfSelectedCards = numberOfSelectedCards,
                 OrderType = OrderType.Ordered,
                 TestType = TestType.Normal,
+                ReturnToDetailsView = returnToDetailsView,
             };
 
             return View(viewModel);
@@ -85,13 +86,14 @@ namespace BlackMesa.MyStack.Main.Controllers
                 {
                     testId = test.Id.ToString(),
                     position = 0,
-                    folderId = viewModel.FolderId
+                    folderId = viewModel.FolderId,
+                    returnToDetailsView = viewModel.ReturnToDetailsView,
                 });
         }
 
-        public ActionResult GetTestItem(string testId, string folderId, int positionOffset = 0)
+        public ActionResult GetTestItem(string testId, string folderId, int positionOffset = 0, bool returnToDetailsView = false)
         {
-            var viewModel = GetTestItemViewModel(testId, folderId, positionOffset);
+            var viewModel = GetTestItemViewModel(testId, folderId, positionOffset, returnToDetailsView);
             if (viewModel == null)
                 return RedirectToAction("Completed", "Test", new {testId = testId, folderId = folderId});
 
@@ -99,7 +101,7 @@ namespace BlackMesa.MyStack.Main.Controllers
         }
 
 
-        private TestItemViewModel GetTestItemViewModel(string testId, string folderId, int positionOffset = 0)
+        private TestItemViewModel GetTestItemViewModel(string testId, string folderId, int positionOffset = 0, bool returnToDetailsView = false)
         {
             var test = Session["Test"] as Test;
             Card card = null;
@@ -153,6 +155,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                     StartTime = DateTime.Now,
                     Result = TestResult.Correct,
                     CardsLeft = cardsLeft,
+                    ReturnToDetailsView = returnToDetailsView,
                 };
             }
             return null;

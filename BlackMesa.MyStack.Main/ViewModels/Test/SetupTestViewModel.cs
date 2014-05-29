@@ -10,6 +10,7 @@ namespace BlackMesa.MyStack.Main.ViewModels.Test
         public bool TestOnlyDueCards { get; set; }
         public bool ReverseSides { get; set; }
         public int NumberOfSelectedCards { get; set; }
+        public bool ReturnToDetailsView { get; set; }
 
         [Display(ResourceType = typeof(Strings), Name = "Order")]
         public OrderType OrderType { get; set; }

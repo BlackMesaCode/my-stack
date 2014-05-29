@@ -31,6 +31,7 @@
 
 
                 @Html.HiddenFor(model => model.FolderId)
+                @Html.HiddenFor(model => model.ReturnToDetailsView)
 
                 <div class="tile gray-dark">
                     <h3>@Strings.General</h3>
@@ -96,7 +97,7 @@
                     <i class="icon-plus"></i>@Strings.Insert
                 </a>
             </div>
-            
+
         }
     </section>
 
@@ -109,10 +110,21 @@
 @* ------------------- Menu ------------------- *@
 
 <nav id="menu">
-    
-    <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Back">
-        <i class="icon-back"></i>
-    </a>
+
+
+    @if (Model.ReturnToDetailsView)
+    {
+        <a class="red-hover" href="@Url.Action("Details", "Folder", new { id = Model.FolderId })" title="@Strings.Back">
+            <i class="icon-back"></i>
+        </a>
+    }
+    else
+    {
+        <a class="red-hover" href="@Url.Action("Options", "Selection", new { id = Model.FolderId })" title="@Strings.Back">
+            <i class="icon-back"></i>
+        </a>
+    }
+
 
 </nav>
 

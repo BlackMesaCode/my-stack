@@ -113,13 +113,15 @@ namespace BlackMesa.MyStack.Main.Controllers
         }
 
 
-        public ActionResult Edit(string id)
+        public ActionResult Edit(string id, bool returnToDetailsView = false)
         {
             var folder = _myStackRepo.GetFolder(id);
             var viewModel = new EditViewModel
             {
                 Id = folder.Id.ToString(),
+                ParentFolderId = folder.ParentFolder.Id.ToString(),
                 Name = folder.Name,
+                ReturnToDetailsView = returnToDetailsView,
             };
             return View(viewModel);
         }

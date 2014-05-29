@@ -13,5 +13,6 @@ namespace BlackMesa.MyStack.Main.ViewModels.Test
         public DateTime StartTime { get; set; }
         public TestResult Result { get; set; }
         public int CardsLeft { get; set; }
+        public bool ReturnToDetailsView { get; set; }
     }
 }

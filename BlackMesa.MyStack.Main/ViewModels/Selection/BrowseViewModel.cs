@@ -7,5 +7,6 @@
         public string BackSide { get; set; }
         public int Position { get; set; }
         public int CardsCount { get; set; }
+        public bool ReturnToDetailsView { get; set; }
     }
 }

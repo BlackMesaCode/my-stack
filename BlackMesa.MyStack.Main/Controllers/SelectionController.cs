@@ -685,7 +685,7 @@ namespace BlackMesa.MyStack.Main.Controllers
 
 
 
-        public ActionResult Browse(string folderId, int position, bool doInit = false, bool selectAll = false)
+        public ActionResult Browse(string folderId, int position, bool doInit = false, bool selectAll = false, bool returnToDetailsView = false)
         {
 
             if (doInit)
@@ -729,6 +729,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 BackSide = backSide != null ? backSide.AddLinkTags() : null,
                 CardsCount = browseList.CardsCount,
                 Position = position,
+                ReturnToDetailsView = returnToDetailsView,
             };
             return View(viewModel);
         }

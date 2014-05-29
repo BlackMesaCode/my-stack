@@ -24,7 +24,7 @@
             }
             else
             {
-                <a class="tile gray-darker-hover" href="@Url.Action("Edit", "Folder", new { id = Model.Id })">
+                <a class="tile gray-darker-hover" href="@Url.Action("Edit", "Folder", new { id = Model.Id, returnToDetailsView = true })">
                     <h1><i class="icon-folder-open"></i>@ViewBag.Title</h1>
                 </a>
             }
@@ -216,11 +216,11 @@
         </a>
     }
     
-    <a class="red-hover" href="@Url.Action("Setup", "Test", new { folderId = Model.Id, selectAll = true })" title="@Strings.StartTest">
+    <a class="red-hover" href="@Url.Action("Setup", "Test", new { folderId = Model.Id, selectAll = true, returnToDetailsView = true })" title="@Strings.StartTest">
         <i class="icon-rocket"></i>
     </a>
 
-    <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.Id, position = 0, doInit = true, selectAll = true })" title="@Strings.Browse">
+    <a class="red-hover" href="@Url.Action("Browse", "Selection", new { folderId = Model.Id, position = 0, doInit = true, selectAll = true, returnToDetailsView = true })" title="@Strings.Browse">
         <i class="icon-browse"></i>
     </a>
 
