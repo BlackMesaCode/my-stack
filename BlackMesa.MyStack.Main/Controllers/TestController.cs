@@ -172,6 +172,9 @@ namespace BlackMesa.MyStack.Main.Controllers
             _myStackRepo.AddTestItem(testedCard.Id.ToString(), resultViewModel.TestId,
                 resultViewModel.StartTime, currentTime, resultViewModel.Result);
             
+            _myStackRepo.UpdateCardLevel(testedCard);
+            _myStackRepo.UpdateCardIsDue(testedCard);
+
             return RedirectToAction("GetTestItem",
                 new
                 {

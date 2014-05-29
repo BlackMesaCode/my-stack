@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using BlackMesa.MyStack.Main.Resources;
+using HibernatingRhinos.Profiler.Appender;
 
 namespace BlackMesa.MyStack.Main.Models
 {
@@ -43,53 +44,51 @@ namespace BlackMesa.MyStack.Main.Models
         [DataType(DataType.MultilineText)]
         public string BackSide { get; set; }
 
-        [NotMapped]
-        public int Level
+        public int Level { get; set; }
+        public bool IsDue { get; set; }
+
+
+        public int CalculateLevel()
         {
-            get
+            var testItems = TestItems.OrderBy(i => i.EndTime).ToList();
+
+            int level = 0;
+
+            if (testItems.Count == 1)
             {
-                var testItems = TestItems.OrderBy(i => i.EndTime).ToList();
-
-                int level = 0;
-
-                if (testItems.Count == 1)
+                if (testItems.Single().Result == TestResult.Correct)
+                    level++;
+                else
+                    level = 0;
+            }
+            else if (testItems.Count > 1)
+            {
+                for (int i = 1; i < testItems.Count(); i++)
                 {
-                    if (testItems.Single().Result == TestResult.Correct)
-                        level++;
-                    else
-                        level = 0;
-                }
-                else if (testItems.Count > 1)
-                {
-                    for (int i = 1; i < testItems.Count(); i++)
+                    if (testItems[i].EndTime - testItems[i - 1].EndTime >= GetTimespanByLevel(level))
                     {
-                        if (testItems[i].EndTime - testItems[i - 1].EndTime >= GetTimespanByLevel(level))
-                        {
-                            if (testItems[i].Result == TestResult.Correct)
-                                level++;
-                            else
-                                level = 0;
-                            //else     // Different to Leitner algorithm
-                            //    level--;
-                        }
+                        if (testItems[i].Result == TestResult.Correct)
+                            level++;
+                        else
+                            level = 0;
+                        //else     // Different to Leitner algorithm
+                        //    level--;
                     }
                 }
-
-                return level;
             }
+
+            return level;
         }
 
-        [NotMapped]
-        public bool IsDue {
-            get
+        
+        public bool CalculateIsDue()
+        {
+            if (TestItems.Count == 0)
+                return true;
+            else
             {
-                if (TestItems.Count == 0)
-                    return true;
-                else
-                {
-                    var lastTestedItem = TestItems.OrderBy(i => i.EndTime).Last();
-                    return DateTime.Now - lastTestedItem.EndTime >= GetTimespanByLevel(Level);
-                }
+                var lastTestedItem = TestItems.OrderBy(i => i.EndTime).Last();
+                return DateTime.Now - lastTestedItem.EndTime >= GetTimespanByLevel(Level);
             }
         }
 

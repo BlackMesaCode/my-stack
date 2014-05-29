@@ -434,7 +434,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 var dateEdited = card.Attribute("DateEdited") == null ? DateTime.Now : DateTime.Parse(card.Attribute("DateEdited").Value);
 
                 var cardId = _myStackRepo.AddCard(parentFolderId, User.Identity.GetUserId(), card.Attribute("FrontSide").Value,
-                    card.Attribute("BackSide").Value, dateCreated, dateEdited);
+                    card.Attribute("BackSide").Value, dateCreated, dateEdited, int.Parse(card.Attribute("Level").Value), bool.Parse(card.Attribute("IsDue").Value));
 
                 if (card.Elements("TestItems").Any())
                 {
@@ -654,6 +654,8 @@ namespace BlackMesa.MyStack.Main.Controllers
                 cardNode.SetAttribute("BackSide", selectedCard.BackSide);
                 cardNode.SetAttribute("DateCreated", selectedCard.DateCreated.ToString());
                 cardNode.SetAttribute("DateEdited", selectedCard.DateEdited.ToString());
+                cardNode.SetAttribute("Level", selectedCard.Level.ToString());
+                cardNode.SetAttribute("IsDue", selectedCard.IsDue.ToString());
 
                 if (includeTestItems && selectedCard.TestItems.Any())
                 {
@@ -755,6 +757,8 @@ namespace BlackMesa.MyStack.Main.Controllers
                 foreach (var card in cards)
                 {
                     _myStackRepo.RemoveTestItems(card.Id.ToString(), card);
+                    _myStackRepo.UpdateCardLevel(card);
+                    _myStackRepo.UpdateCardIsDue(card);
                 }
                 return RedirectToAction("Details", "Folder", new {id = viewModel.FolderId});
             }

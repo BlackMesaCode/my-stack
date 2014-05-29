@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BlackMesa.MyStack.Main.Models;
+using HibernatingRhinos.Profiler.Appender;
 
 namespace BlackMesa.MyStack.Main.DataLayer
 {
@@ -232,7 +233,7 @@ namespace BlackMesa.MyStack.Main.DataLayer
         }
 
 
-        public string AddCard(string folderId, string ownerId, string frontSide, string backSide, DateTime? dateCreated = null, DateTime? dateEdited = null)
+        public string AddCard(string folderId, string ownerId, string frontSide, string backSide, DateTime? dateCreated = null, DateTime? dateEdited = null, int level = 0, bool isDue = true)
         {
 
             var owner = _dbContext.Users.Find(ownerId);
@@ -250,6 +251,8 @@ namespace BlackMesa.MyStack.Main.DataLayer
                 BackSide = backSide,
                 DateCreated = dateCreated ?? DateTime.Now,
                 DateEdited = dateEdited ?? DateTime.Now,
+                Level = level,
+                IsDue = isDue,
             };
 
             _dbContext.MyStack_Cards.Add(card);
@@ -346,6 +349,18 @@ namespace BlackMesa.MyStack.Main.DataLayer
             var card = _dbContext.MyStack_Cards.Find(new Guid(id));
             DecreasePositionOfSubsequentCards(card.Folder, card, 1);
             _dbContext.MyStack_Cards.Remove(card);
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateCardLevel(Card card)
+        {
+            card.Level = card.CalculateLevel();
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateCardIsDue(Card card)
+        {
+            card.IsDue = card.CalculateIsDue();
             _dbContext.SaveChanges();
         }
 

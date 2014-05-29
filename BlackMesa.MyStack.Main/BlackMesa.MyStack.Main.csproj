@@ -197,6 +197,10 @@
     <Compile Include="Migrations\201405291226007_Added StringLength contraint for the folder name attribute.Designer.cs">
       <DependentUpon>201405291226007_Added StringLength contraint for the folder name attribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405291613131_Changed Level and IsDue property to be mapped.cs" />
+    <Compile Include="Migrations\201405291613131_Changed Level and IsDue property to be mapped.Designer.cs">
+      <DependentUpon>201405291613131_Changed Level and IsDue property to be mapped.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Folder\AddOptionsViewModel.cs" />
     <Compile Include="ViewModels\Help\TestTypesViewModel.cs" />
     <Compile Include="ViewModels\Help\LeitnerViewModel.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405291226007_Added StringLength contraint for the folder name attribute.resx">
       <DependentUpon>201405291226007_Added StringLength contraint for the folder name attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405291613131_Changed Level and IsDue property to be mapped.resx">
+      <DependentUpon>201405291613131_Changed Level and IsDue property to be mapped.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
