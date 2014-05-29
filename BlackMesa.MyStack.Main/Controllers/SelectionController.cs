@@ -418,6 +418,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                     return View(viewModel);
                 }
                 var rootElement = xDoc.Root;
+                
                 Deserialize(rootElement, viewModel.FolderId);
 
                 return RedirectToAction("Details", "Folder", new { id = viewModel.FolderId });
@@ -428,12 +429,16 @@ namespace BlackMesa.MyStack.Main.Controllers
 
         private void Deserialize(XElement folder, string parentFolderId)
         {
+            var folderId = parentFolderId;
+            if (!string.IsNullOrEmpty(folder.Attribute("Name").Value))
+                folderId = _myStackRepo.AddFolder(folder.Attribute("Name").Value, User.Identity.GetUserId(), parentFolderId);
+
             foreach (var card in folder.Elements("Card"))
             {
                 var dateCreated = card.Attribute("DateCreated") == null ? DateTime.Now : DateTime.Parse(card.Attribute("DateCreated").Value);
                 var dateEdited = card.Attribute("DateEdited") == null ? DateTime.Now : DateTime.Parse(card.Attribute("DateEdited").Value);
 
-                var cardId = _myStackRepo.AddCard(parentFolderId, User.Identity.GetUserId(), card.Attribute("FrontSide").Value,
+                var cardId = _myStackRepo.AddCard(folderId, User.Identity.GetUserId(), card.Attribute("FrontSide").Value,
                     card.Attribute("BackSide").Value, dateCreated, dateEdited, int.Parse(card.Attribute("Level").Value), bool.Parse(card.Attribute("IsDue").Value));
 
                 if (card.Elements("TestItems").Any())
@@ -449,7 +454,6 @@ namespace BlackMesa.MyStack.Main.Controllers
 
             foreach (var subFolder in folder.Elements("Folder"))
             {
-                var folderId = _myStackRepo.AddFolder(subFolder.Attribute("Name").Value, User.Identity.GetUserId(), parentFolderId);
                 Deserialize(subFolder, folderId);
             }
         }
@@ -634,7 +638,10 @@ namespace BlackMesa.MyStack.Main.Controllers
             if (parentFolderElement == null)
             {
                 parentFolderElement = doc.CreateElement("Folder");
-                parentFolderElement.SetAttribute("Name", folder.Name);
+                if (folder.IsSelected)
+                    parentFolderElement.SetAttribute("Name", folder.Name);
+                else
+                    parentFolderElement.SetAttribute("Name", "");
                 doc.AppendChild(parentFolderElement);
             }
 
