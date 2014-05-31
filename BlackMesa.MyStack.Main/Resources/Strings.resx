@@ -765,4 +765,10 @@
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
   </data>
+  <data name="TextInQuotationMarks" xml:space="preserve">
+    <value>Text in quotation marks</value>
+  </data>
+  <data name="UseTextQualifier" xml:space="preserve">
+    <value>Mask text</value>
+  </data>
 </root>

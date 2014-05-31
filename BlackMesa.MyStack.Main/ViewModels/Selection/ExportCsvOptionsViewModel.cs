@@ -12,6 +12,9 @@ namespace BlackMesa.MyStack.Main.ViewModels.Selection
 
         [Display(ResourceType = typeof(Strings), Name = "CardDelimiter")]
         public Delimiter CardDelimiter { get; set; }
+
+        [Display(ResourceType = typeof(Strings), Name = "TextInQuotationMarks")]
+        public bool TextInQuotationMarks { get; set; }
     }
 }
 

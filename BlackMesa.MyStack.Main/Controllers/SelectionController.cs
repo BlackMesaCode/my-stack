@@ -412,7 +412,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 {
                     xDoc = XDocument.Parse(viewModel.SerializationResult);
                 }
-                catch (Exception e)
+                catch
                 {
                     ModelState.AddModelError(String.Empty, Strings.XmlParsingError);
                     return View(viewModel);
@@ -466,6 +466,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 FolderId = folderId,
                 SideDelimiter = Delimiter.Tab,
                 CardDelimiter = Delimiter.NewLine,
+                TextInQuotationMarks = true
             };
             return View(viewModel);
         }
@@ -481,7 +482,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 try
                 {
                     ParseCSV(viewModel.SerializationResult, GetDelimiterString(viewModel.SideDelimiter),
-                        GetDelimiterString(viewModel.CardDelimiter), viewModel.FolderId);
+                        GetDelimiterString(viewModel.CardDelimiter), viewModel.FolderId, viewModel.TextInQuotationMarks);
                 }
                 catch (Exception)
                 {
@@ -495,19 +496,92 @@ namespace BlackMesa.MyStack.Main.Controllers
         }
 
 
-        private void ParseCSV(string stringToParse, string sideDelimiter, string cardDelimiter, string folderId)
+        private void ParseCSV(string stringToParse, string sideDelimiter, string cardDelimiter, string folderId, bool textInQuotationMarks)
         {
             var newFolderId = _myStackRepo.AddFolder("ImportedCSV", User.Identity.GetUserId(), folderId);
-            var cards = stringToParse.Split(new string[] {cardDelimiter}, StringSplitOptions.None);
-            if (cards == null)
-                throw new Exception();
-            foreach (var card in cards)
+
+            if (!textInQuotationMarks)
             {
-                var sides = card.Split(new string[] {sideDelimiter}, StringSplitOptions.None);
-                if (sides.Length == 2)
-                    _myStackRepo.AddCard(newFolderId, User.Identity.GetUserId(), sides[0], sides[1], DateTime.Now);
-                else
+                var cards = stringToParse.Split(new string[] { cardDelimiter }, StringSplitOptions.None);
+                if (cards == null)
                     throw new Exception();
+                foreach (var card in cards)
+                {
+                    var sides = card.Split(new string[] { sideDelimiter }, StringSplitOptions.None);
+                    if (sides.Length == 2)
+                        _myStackRepo.AddCard(newFolderId, User.Identity.GetUserId(), sides[0], sides[1], DateTime.Now);
+                    else
+                        throw new Exception();
+                }
+            }
+            else
+            {
+                var sides = new string[] { "", "" };
+                var currentSide = 0;
+                var isTextInsideQuotation = false;
+
+                for (int i = 0; i < stringToParse.Length; i++)
+                {
+                    var c = stringToParse[i];
+                    var sideDelimiterTmp = string.Empty;
+                    var cardDelimiterTmp = string.Empty;
+
+                    if (i + sideDelimiter.Length < stringToParse.Length)
+                    {
+                        sideDelimiterTmp = stringToParse.Substring(i, sideDelimiter.Length);
+                    }
+                    if (i + cardDelimiter.Length < stringToParse.Length)
+                    {
+                        cardDelimiterTmp = stringToParse.Substring(i, cardDelimiter.Length);
+                    }
+
+                    if (i == 0 && c != '"')
+                    {
+                        throw new Exception();
+                    }
+
+                    if (!isTextInsideQuotation && string.Equals(sideDelimiter, sideDelimiterTmp))
+                    {
+                        currentSide = currentSide == 0 ? 1 : 0;
+                        i += sideDelimiter.Length - 1;
+                    }
+                    else if (!isTextInsideQuotation && string.Equals(cardDelimiter, cardDelimiterTmp))
+                    {
+                        _myStackRepo.AddCard(newFolderId, User.Identity.GetUserId(), sides[0], sides[1], DateTime.Now);
+                        Array.Clear(sides, 0, 2);
+                        currentSide = 0;
+                        i += cardDelimiter.Length - 1;
+                    }
+                    else if (c == '"')
+                    {
+                        if (!isTextInsideQuotation)
+                        {
+                            isTextInsideQuotation = true;
+                        }
+                        else if (i < stringToParse.Length - 1 && stringToParse[i + 1] != '"')
+                        {
+                            isTextInsideQuotation = false;
+                        }
+                        else if (i < stringToParse.Length - 1 && stringToParse[i + 1] == '"')
+                        {
+                            sides[currentSide] += stringToParse[++i];
+                        }
+                        else
+                        {
+                            isTextInsideQuotation = false;
+                        }
+                    }
+                    else
+                    {
+                        sides[currentSide] += c;
+                    }
+                }
+
+                // add last card, if its ending correctly
+                if (!isTextInsideQuotation)
+                {
+                    _myStackRepo.AddCard(newFolderId, User.Identity.GetUserId(), sides[0], sides[1], DateTime.Now);
+                }
             }
         }
 
@@ -549,6 +623,7 @@ namespace BlackMesa.MyStack.Main.Controllers
                 FolderId = folderId,
                 SideDelimiter = Delimiter.Tab,
                 CardDelimiter = Delimiter.NewLine,
+                TextInQuotationMarks = true
             };
 
             return View(viewModel);
@@ -592,12 +667,24 @@ namespace BlackMesa.MyStack.Main.Controllers
             _myStackRepo.GetAllCardsInFolder(folder, ref cards, true);
 
             var i = 0;
+            string frontSide, backSide;
+
             foreach (var card in cards)
             {
                 i++;
-                stringBuilder.Append(card.FrontSide);
+
+                frontSide = string.IsNullOrEmpty(card.FrontSide) ? string.Empty : card.FrontSide;
+                backSide = string.IsNullOrEmpty(card.BackSide) ? string.Empty : card.BackSide;
+
+                if (model.TextInQuotationMarks)
+                {
+                    frontSide = string.Format("\"{0}\"", frontSide.Replace("\"", "\"\""));
+                    backSide = string.Format("\"{0}\"", backSide.Replace("\"", "\"\""));
+                }
+
+                stringBuilder.Append(frontSide);
                 stringBuilder.Append(GetDelimiterString(model.SideDelimiter));
-                stringBuilder.Append(card.BackSide);
+                stringBuilder.Append(backSide);
                 if (i != cards.Count)
                     stringBuilder.Append(GetDelimiterString(model.CardDelimiter));
             }

@@ -47,6 +47,15 @@
             
             @Html.RadioButtonForEnum(model => model.CardDelimiter)
 
+            <div class="tile gray-dark">
+                <h3>@Strings.UseTextQualifier</h3>
+            </div>
+
+            <label class="tile gray-light-hover" for="@Html.IdFor(model => Model.TextInQuotationMarks)">
+                @Html.CheckBoxFor(model => Model.TextInQuotationMarks)
+                @Html.DisplayNameFor(model => Model.TextInQuotationMarks)
+            </label>
+
             <div class="form-element-container">
                 <button class="gray-dark-hover" type="submit">
                     <i class="icon-plus prefix-icon"></i><i class="icon-import-unknown"></i>@Strings.Import

@@ -762,4 +762,10 @@
   <data name="Hello" xml:space="preserve">
     <value>Hallo</value>
   </data>
+  <data name="TextInQuotationMarks" xml:space="preserve">
+    <value>Text in Anführungszeichen</value>
+  </data>
+  <data name="UseTextQualifier" xml:space="preserve">
+    <value>Text maskieren</value>
+  </data>
 </root>
