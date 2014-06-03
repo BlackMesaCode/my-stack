@@ -262,6 +262,7 @@
   <ItemGroup>
     <Content Include="App_Start\EntityFrameworkProfilerBootstrapper.vb" />
     <Content Include="Javascript\export.js" />
+    <Content Include="Javascript\mystack.js" />
     <Content Include="Less\icons.less" />
     <Content Include="Less\normalize.less" />
     <Content Include="Javascript\create-edit-card.js" />

@@ -37,7 +37,7 @@
         color: whitesmoke !important;
     }
 
-    &:hover {
+    .no-touch &:hover {
         background-color: @red-light;
         color: whitesmoke;
     }
@@ -50,7 +50,7 @@
 .gray-light-hover {
     background-color: @gray-light;
 
-    &:hover {
+    .no-touch &:hover {
         background-color: white;
     }
 
@@ -71,7 +71,7 @@
     background-color: @gray-dark;
     color: whitesmoke !important;
 
-    &:hover {
+    .no-touch &:hover {
         background-color: @gray-dark-hover;
         color: whitesmoke !important;
     }
@@ -87,7 +87,7 @@
     background-color: @gray-darker;
     color: whitesmoke;
 
-    &:hover {
+    .no-touch &:hover {
         background-color: @gray-darker-hover;
         color: whitesmoke;
     }
@@ -199,7 +199,7 @@ a {
   color: @gray-darkest;
   text-decoration: none;
 
-  &:hover,
+  .no-touch &:hover,
   &:focus {
     color: @gray-darkest;
     text-decoration: none;
@@ -485,7 +485,7 @@ html, body {
         margin-left: 7px;  
     }
 
-    &:hover {
+    .no-touch &:hover {
         &.gray-light-hover {
                 color: @gray-dark !important;
             }

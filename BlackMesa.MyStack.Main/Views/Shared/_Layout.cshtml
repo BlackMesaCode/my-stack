@@ -12,12 +12,13 @@
 
     @RenderSection("Styles", required: false)
 </head>
-<body>
+<body class="no-touch">
     <div id="container">
         @RenderBody()
     </div>
     <script src="~/Scripts/jquery-1.8.0.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Javascript/mystack.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
