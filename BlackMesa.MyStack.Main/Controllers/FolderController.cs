@@ -35,8 +35,18 @@ namespace BlackMesa.MyStack.Main.Controllers
         {
             var tutorialFolderId = _myStackRepo.AddFolder("Tutorial", User.Identity.GetUserId(), parentFolderId);
 
-            _myStackRepo.AddCard(tutorialFolderId, User.Identity.GetUserId(), "FS Content", "BS Content", DateTime.Now,
+            var cardManagementFolderId = _myStackRepo.AddFolder("Karteikartenverwaltung", User.Identity.GetUserId(), tutorialFolderId);
+
+            _myStackRepo.AddCard(cardManagementFolderId, User.Identity.GetUserId(), "Wie lege ich eine Karteikarte an ?",
+                "Schritt 1: Verwende die Hinzufügen Schaltfläche (+ Symbol) am rechten Rand deines Bildschirms.\rSchritt 2: Wähle im Hinzufügen-Menü den Punkt Karteikarte.\rSchritt 3: Beschrifte deine Karteikarte mit Vorder- und Rückseite.\rSchritt 4: Speichere deine Arbeit ab.\r\rBeachte dabei, dass du dich in dem Ordner befindest indem du die Kartei anlegen möchtest!"
+                , DateTime.Now,
                 null);
+
+
+            var testCardsFolderId = _myStackRepo.AddFolder("Kartenabfrage", User.Identity.GetUserId(), tutorialFolderId);
+
+            var accountManagementFolderId = _myStackRepo.AddFolder("Accountverwaltung", User.Identity.GetUserId(), tutorialFolderId);
+
         }
 
 
