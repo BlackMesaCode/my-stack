@@ -289,7 +289,7 @@
     <Content Include="Views\Shared\_Path.cshtml" />
     <Content Include="Views\Selection\Options.cshtml" />
     <Content Include="Views\Selection\SetMoveTarget.cshtml" />
-    <Content Include="Views\Home\Settings.cshtml" />
+    <Content Include="Views\Help\FirstSteps.cshtml" />
     <Content Include="Views\Selection\Delete.cshtml" />
     <Content Include="Views\Selection\SearchResults.cshtml" />
     <Content Include="Views\Selection\_SearchResult.cshtml" />

@@ -9,7 +9,6 @@ namespace BlackMesa.MyStack.Main.Controllers
 {
     public class HelpController : BaseController
     {
-        //private readonly MyStackRepository _myStackRepo = new MyStackRepository(new MyStackDbContext());
 
         public ActionResult Leitner(string folderId)
         {
@@ -28,6 +27,12 @@ namespace BlackMesa.MyStack.Main.Controllers
                 FolderId = folderId,
             };
             return View(viewModel);
+        }
+
+
+        public ActionResult FirstSteps()
+        {
+            return View();
         }
 
     }

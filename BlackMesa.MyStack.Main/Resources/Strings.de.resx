@@ -768,4 +768,7 @@
   <data name="UseTextQualifier" xml:space="preserve">
     <value>Text maskieren</value>
   </data>
+  <data name="FirstSteps" xml:space="preserve">
+    <value>Erste Schritte</value>
+  </data>
 </root>
